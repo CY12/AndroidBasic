@@ -7,18 +7,19 @@ import androidx.databinding.Observable;
 import android.os.Bundle;
 import android.util.Log;
 
+
 import com.example.space.BR;
 import com.example.space.R;
 
 public class DataBindingActivity extends AppCompatActivity {
     private final static String t="test";
-
     private Student student;
+    private String str=" notifyPropertyChanged:刷新单个，需要@Bindable 生成BR.;\nnotifyChange()：直接更新所有";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityDataBindingBinding dataBinding= DataBindingUtil.setContentView(this,R.layout.activity_data_binding);
+        ActivityDataBinding1Binding dataBinding= DataBindingUtil.setContentView(this,R.layout.activity_data_binding1);
         student=new Student("Tom","Smd","boy");
         dataBinding.setStu(student);
         dataBinding.setHelper(new StudentHelper());
@@ -46,6 +47,11 @@ public class DataBindingActivity extends AppCompatActivity {
         public void changeAll(){
             student.resetAll(new Student("Alice","San Francisco","girl"));
         }
+
+        public void showToast(){
+            //showDialog(str);
+        }
     }
+
 
 }

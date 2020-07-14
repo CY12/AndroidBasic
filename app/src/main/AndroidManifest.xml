@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".databinding.DataBindingActivity"></activity>
+        <activity android:name=".autoview.AutoViewActivity"></activity>
+        <activity android:name=".thinking.builder.BuilderActivity" />
+        <activity android:name=".thinking.observer.ObserverActivity" />
+        <activity android:name=".addview.AddViewActivity" />
+        <activity android:name=".databinding.DataBindingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

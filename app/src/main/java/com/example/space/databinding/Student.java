@@ -4,7 +4,6 @@ import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
 import com.example.space.BR;
-
 public class Student  extends BaseObservable {
     private String name;
     private String addr;
@@ -30,13 +29,14 @@ public class Student  extends BaseObservable {
         this.name = name;
         notifyPropertyChanged(BR.name);
     }
-
+    @Bindable
     public String getAddr() {
         return this.addr;
     }
 
     public void setAddr(String addr) {
         this.addr = addr;
+        notifyPropertyChanged(BR.addr);
     }
     public String getSex() {
         return sex;

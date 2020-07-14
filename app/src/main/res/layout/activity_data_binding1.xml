@@ -30,6 +30,10 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="@{stu.sex,default=h}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->helper.showToast()}"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,6 +49,16 @@
             android:onClick="@{()->helper.changeAll()}"
             android:text="Change All"
             android:textAllCaps="false"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{stu.name}"/>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={stu.name}"
             />
     </LinearLayout>
 </layout>
