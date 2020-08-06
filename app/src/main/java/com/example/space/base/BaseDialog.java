@@ -29,7 +29,7 @@ public class BaseDialog extends Dialog {
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         setCanceledOnTouchOutside(true);
         textView = findViewById(R.id.tv_dialog);
-        cancel=findViewById(R.id.tv_cancel);
+        cancel = findViewById(R.id.tv_cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

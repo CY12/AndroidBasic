@@ -17,8 +17,6 @@ public class AddViewActivity extends AppCompatActivity {
     private TextView tvAddParams;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class AddViewActivity extends AppCompatActivity {
                 child.setTextSize(20);
                 child.setTextColor(getResources().getColor(R.color.colorAccent));
                 long currentTime = System.currentTimeMillis();
-                child.setText(currentTime+"");
+                child.setText(currentTime + "");
                 llLinear.addView(child);
             }
         });
@@ -47,12 +45,12 @@ public class AddViewActivity extends AppCompatActivity {
         tvAddParams.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TextView textView=new TextView(AddViewActivity.this);
-                RelativeLayout.LayoutParams layoutParams=new RelativeLayout.LayoutParams(100,100);
-                layoutParams.leftMargin=100;
-                layoutParams.topMargin=100;
-                textView.setText(System.currentTimeMillis()+"");
-                rlRelative.addView(textView,layoutParams);
+                TextView textView = new TextView(AddViewActivity.this);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(100, 100);
+                layoutParams.leftMargin = 100;
+                layoutParams.topMargin = 100;
+                textView.setText(System.currentTimeMillis() + "");
+                rlRelative.addView(textView, layoutParams);
 
             }
         });

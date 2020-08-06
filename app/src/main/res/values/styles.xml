@@ -15,4 +15,9 @@
         <attr name="color" format="color"/>
     </declare-styleable>
 
+    <declare-styleable name="OvalImageView">
+        <attr name="Oval_rx" format="dimension"/>
+        <attr name="Oval_ry" format="dimension"/>
+    </declare-styleable>
+
 </resources>

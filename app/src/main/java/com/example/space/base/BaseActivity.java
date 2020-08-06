@@ -23,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_base);
         //initContentView(R.layout.activity_base);
         //getWindow().setBackgroundDrawable(null);
         //setContentView(R.layout.activity_base);
@@ -65,11 +66,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         parentLinearLayout.addView(view, params);
 
     }
+
     public abstract void initView();
+
     public abstract void initData();
+
     public abstract void initListener();
-    public void showDialog(String text){
-        BaseDialog dialog=new BaseDialog(this,text);
+
+    public void showDialog(String text) {
+        BaseDialog dialog = new BaseDialog(this, text);
         dialog.show();
     }
 

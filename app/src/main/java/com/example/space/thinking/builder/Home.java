@@ -1,6 +1,7 @@
 package com.example.space.thinking.builder;
 
 public class Home {
+
     private String location;
 
     private String window;

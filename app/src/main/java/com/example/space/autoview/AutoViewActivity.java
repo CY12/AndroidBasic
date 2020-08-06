@@ -28,13 +28,13 @@ public class AutoViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 linearLayout.setVisibility(View.VISIBLE);
-                PopupView.topPopup(linearLayout,mHeight);
+                PopupView.topPopup(linearLayout, mHeight);
 
-                PopupView.topPopup(test,mHeight);
+                PopupView.topPopup(test, mHeight);
             }
         });
         linearLayout.getViewTreeObserver().addOnGlobalLayoutListener(
-                new ViewTreeObserver.OnGlobalLayoutListener(){
+                new ViewTreeObserver.OnGlobalLayoutListener() {
 
                     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                     @Override

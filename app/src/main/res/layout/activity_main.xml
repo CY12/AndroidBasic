@@ -8,9 +8,11 @@
     android:paddingRight="5dp"
     android:paddingTop="5dp"
     tools:context=".MainActivity">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,68 +23,126 @@
                 android:id="@+id/tv_addView"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
+                android:background="@drawable/tv_20"
                 android:gravity="center"
                 android:text="Add View"
-                android:textSize="20dp"
                 android:textColor="@color/white"
-                android:background="@drawable/tv_20"
-                />
+                android:textSize="20dp" />
+
             <TextView
                 android:id="@+id/tv_dataBing"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:background="@drawable/tv_20"
                 android:gravity="center"
                 android:text="DataBing"
-                android:textSize="20dp"
-                android:layout_marginLeft="240dp"
                 android:textColor="@color/white"
-                android:background="@drawable/tv_20"
-                />
+                android:textSize="20dp" />
+
             <TextView
                 android:id="@+id/tv_observer"
-                android:layout_marginLeft="120dp"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:background="@drawable/tv_20"
                 android:gravity="center"
                 android:text="Observer"
-                android:textSize="20dp"
                 android:textColor="@color/white"
-                android:background="@drawable/tv_20"
-                />
+                android:textSize="20dp" />
+
             <TextView
                 android:id="@+id/tv_popup"
-                android:layout_marginTop="100dp"
                 android:layout_width="100dp"
                 android:layout_height="60dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/tv_20"
                 android:gravity="center"
                 android:text="Popup"
-                android:textSize="20dp"
 
                 android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_service"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="100dp"
                 android:background="@drawable/tv_20"
-                />
+                android:gravity="center"
+                android:text="Service"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
 
+            <TextView
+                android:id="@+id/tv_play"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="PlayMusic"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
 
+            <com.example.space.view.OvalImageView
+                android:visibility="gone"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="200dp"
+                app:Oval_rx="20dp"
+                app:Oval_ry="20dp"
+                android:src="@mipmap/ic_tou" />
 
+            <TextView
+                android:id="@+id/tv_camera"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Popup"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_camera2"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Service"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_camera1"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="200dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Camera1"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
-
-
-
-
-
-
+            <FrameLayout
+                android:id="@+id/content"
+                android:layout_marginTop="300dp"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
 
         </RelativeLayout>
 
     </ScrollView>
-
-
-
-
 
 
 </LinearLayout>
