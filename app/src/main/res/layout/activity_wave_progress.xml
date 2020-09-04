@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".wave.WaveProgressActivity">
+
+    <com.example.space.wave.WaveProgressView
+        android:visibility="gone"
+        android:id="@+id/wave_progress"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        app:wave_color="@color/color_1"
+        app:second_wave_color="@color/color_2"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/tv_progress"
+        android:padding="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="start"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"/>
+    <com.example.space.wave.mWaveView
+        android:id="@+id/mWaveView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        />
+
+
+</RelativeLayout>

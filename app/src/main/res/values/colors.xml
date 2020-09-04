@@ -6,4 +6,11 @@
 
 
     <color name="white">#fff</color>
+
+
+    <color name="light">#800de6e8</color>
+    <color name="color_1">#04A6BC</color>
+    <color name="color_2">#CC00E2FF</color>
+    <color name="color_3">#B10E00</color>
+    <color name="color_4">#B3FF0000</color>
 </resources>

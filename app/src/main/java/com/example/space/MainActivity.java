@@ -6,7 +6,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +22,7 @@ import com.example.space.server.ServiceActivity;
 import com.example.space.thinking.observer.ObserverActivity;
 import com.example.space.view.CameraFragment;
 import com.example.space.view.HearBeatView;
+import com.example.space.wave.WaveProgressActivity;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,14 +35,17 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     private TextView tvPopup;
     private TextView tvService;
     private TextView tvPlay;
-    private boolean isLog=true;
+    private boolean isLog = true;
     private TextView tvCamera;
     private TextView tvCamera2;
     private TextView tvCamera1;
-
+    private TextView tvAccessibility;
+    private LinearLayout linearLayout;
+    private TextView tvModel;
+    TextView waveProgress;
 
     private MediaPlayer mediaPlayer;
-    private boolean isPlaying=false;
+    private boolean isPlaying = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,35 +61,55 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
     @Override
     public void initView() {
+        linearLayout = findViewById(R.id.ll_all);
         tvAddView = (TextView) findViewById(R.id.tv_addView);
         tvDataBing = (TextView) findViewById(R.id.tv_dataBing);
         tvObserver = (TextView) findViewById(R.id.tv_observer);
         tvPopup = (TextView) findViewById(R.id.tv_popup);
-        tvService=findViewById(R.id.tv_service);
-        tvPlay=findViewById(R.id.tv_play);
-        tvCamera=findViewById(R.id.tv_camera);
-        tvCamera2=findViewById(R.id.tv_camera2);
-        tvCamera1=findViewById(R.id.tv_camera1);
+        tvService = findViewById(R.id.tv_service);
+        tvPlay = findViewById(R.id.tv_play);
+        tvCamera = findViewById(R.id.tv_camera);
+        tvCamera2 = findViewById(R.id.tv_camera2);
+        tvCamera1 = findViewById(R.id.tv_camera1);
+        tvAccessibility = findViewById(R.id.tv_accessibility);
+        tvModel = findViewById(R.id.tv_model);
+        waveProgress = findViewById(R.id.tv_waveProgress);
+        findViewById(R.id.tv_task).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ModelActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("Test", "MainActivity onResume");
     }
 
     public void initData() {
-        mediaPlayer=MediaPlayer.create(this,R.raw.time);
 
-        HashMap<String,String> hashMap=new HashMap();
-        hashMap.put("123","小明");
-        hashMap.put("124","小红");
-        hashMap.put("125","小蓝");
+
+        mediaPlayer = MediaPlayer.create(this, R.raw.time);
+
+        HashMap<String, String> hashMap = new HashMap();
+        hashMap.put("123", "小明");
+        hashMap.put("124", "小红");
+        hashMap.put("125", "小蓝");
         log(hashMap.toString());
-        hashMap.put("123","小云");
-        hashMap.put("126","小黄");
+        hashMap.put("123", "小云");
+        hashMap.put("126", "小黄");
         log(hashMap.toString());
         hashMap.remove("126");
         log(hashMap.toString());
-        for (Map.Entry<String,String> entry : hashMap.entrySet()){
-            log("key:=="+entry.getKey()+"  value=="+entry.getValue());
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            log("key:==" + entry.getKey() + "  value==" + entry.getValue());
         }
-
-
 
 
     }
@@ -98,6 +124,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvCamera.setOnClickListener(this);
         tvCamera2.setOnClickListener(this);
         tvCamera1.setOnClickListener(this);
+        tvAccessibility.setOnClickListener(this);
+        tvModel.setOnClickListener(this);
+        waveProgress.setOnClickListener(this);
     }
 
     @Override
@@ -119,12 +148,12 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 startActivity(ServiceActivity.class);
                 break;
             case R.id.tv_play:
-                if (isPlaying){
+                if (isPlaying) {
                     mediaPlayer.pause();
-                }else {
+                } else {
                     mediaPlayer.start();
                 }
-                isPlaying=!isPlaying;
+                isPlaying = !isPlaying;
                 break;
             case R.id.tv_camera:
                 startActivity(CameraActivity.class);
@@ -139,6 +168,16 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
             case R.id.tv_camera1:
                 startActivity(CameraActivity1.class);
                 break;
+            case R.id.tv_accessibility:
+                Log.d("Test", "你点击无障碍化按钮");
+                Toast.makeText(MainActivity.this, "你点击无障碍化服务", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.tv_model:
+                startActivity(ModelActivity.class);
+                break;
+            case R.id.tv_waveProgress:
+                startActivity(WaveProgressActivity.class);
+                break;
             default:
                 break;
         }
@@ -148,9 +187,15 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         startActivity(new Intent(MainActivity.this, cls));
     }
 
-    public void log(String s){
-        if (isLog){
-            Log.d("MainActivity",s);
+    public void log(String s) {
+        if (isLog) {
+            Log.d("MainActivity", s);
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d("ModelActivity", "MainActivity destroy");
     }
 }

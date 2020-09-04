@@ -3,6 +3,7 @@ package com.example.space.addview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -15,12 +16,15 @@ public class AddViewActivity extends AppCompatActivity {
     private RelativeLayout rlRelative;
     private TextView tvAddChild;
     private TextView tvAddParams;
+    private RelativeLayout relativeLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_view);
+        Log.d("Test","onCreate AddView");
+        findViewById(R.id.rl_all).setVisibility(View.GONE);
         llLinear = (LinearLayout) findViewById(R.id.ll_linear);
         rlRelative = (RelativeLayout) findViewById(R.id.rl_relative);
         tvAddChild = (TextView) findViewById(R.id.tv_add_child);
@@ -54,5 +58,11 @@ public class AddViewActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d("Test","onResume AddViewActivity");
     }
 }
