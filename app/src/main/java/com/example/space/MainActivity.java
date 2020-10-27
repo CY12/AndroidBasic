@@ -6,7 +6,9 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,8 +20,13 @@ import com.example.space.base.BaseActivity;
 import com.example.space.base.BaseToolbarActivity;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
+import com.example.space.livedata.LiveDataActivity;
+import com.example.space.scroll.Scroll2Activity;
 import com.example.space.server.ServiceActivity;
+import com.example.space.singleClick.SingleActivity;
 import com.example.space.thinking.observer.ObserverActivity;
+import com.example.space.utils.LoadingDialog;
+import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.view.HearBeatView;
 import com.example.space.wave.WaveProgressActivity;
@@ -43,10 +50,15 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     private LinearLayout linearLayout;
     private TextView tvModel;
     TextView waveProgress;
+    TextView tvScroll;
+    TextView tvLoading;
+    RelativeLayout relativeLayout;
+    boolean isRunning = false;
+    TextView tvLoadingDialog;
 
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
-
+    private LoadingDialog loadingDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,12 +86,68 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvAccessibility = findViewById(R.id.tv_accessibility);
         tvModel = findViewById(R.id.tv_model);
         waveProgress = findViewById(R.id.tv_waveProgress);
+        tvLoading = findViewById(R.id.tv_loading);
+        relativeLayout = findViewById(R.id.relative);
+        tvLoadingDialog = findViewById(R.id.tv_loading_dialog);
+
+        findViewById(R.id.tv_scroll).setOnClickListener(v -> startActivity(Scroll2Activity.class));
         findViewById(R.id.tv_task).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ModelActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
+            }
+        });
+
+
+        findViewById(R.id.tv_liveData).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(LiveDataActivity.class);
+            }
+        });
+        findViewById(R.id.tv_singleClick).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(SingleActivity.class);
+            }
+        });
+//        ImageView imageView = new ImageView(this);
+//        imageView.setImageResource(R.mipmap.loading);
+//        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(30, 30);
+//        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
+//        imageView.setLayoutParams(layoutParams);
+//        relativeLayout.addView(imageView);
+        ImageView imageView =new ImageView(this);
+        TextView textView = new TextView(this);
+        tvLoading.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isRunning){
+                    ProgressUtils.stopAnimator(relativeLayout,imageView);
+                    isRunning = !isRunning;
+                }else {
+                    ProgressUtils.rotate(imageView,relativeLayout,1000);
+                    isRunning = !isRunning;
+                }
+
+            }
+        });
+        tvLoadingDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isRunning){
+                    if (loadingDialog == null){
+                        loadingDialog = new LoadingDialog(MainActivity.this,R.style.LoadingDialog,1000);
+                        loadingDialog.show();
+
+                       // loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                    }
+                }else {
+                    loadingDialog.dismiss();
+                    loadingDialog = null;
+                }
             }
         });
 

@@ -6,11 +6,14 @@
 
 
     <color name="white">#fff</color>
-
+    <color name="pink">#FF5C93</color>
 
     <color name="light">#800de6e8</color>
     <color name="color_1">#04A6BC</color>
     <color name="color_2">#CC00E2FF</color>
     <color name="color_3">#B10E00</color>
     <color name="color_4">#B3FF0000</color>
+
+    <color name="grey">#404040</color>
+    <color name="blue">#2196F3</color>
 </resources>

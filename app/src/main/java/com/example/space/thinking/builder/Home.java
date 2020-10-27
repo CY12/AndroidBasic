@@ -67,7 +67,7 @@ public class Home {
             return this;
         }
 
-        public Home builder(){
+        public Home build(){
             return new Home(this);
         }
     }

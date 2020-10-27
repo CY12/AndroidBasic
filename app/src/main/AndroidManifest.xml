@@ -13,10 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".wave.WaveProgressActivity"></activity>
+        <activity android:name=".livedata.SecondActivity"></activity>
+        <activity android:name=".livedata.LiveDataActivity" />
+        <activity android:name=".singleClick.SingleActivity" />
+        <activity android:name=".scroll.Scroll2Activity" />
+        <activity android:name=".onehand.OneHandActivity" />
+        <activity android:name=".wave.WaveProgressActivity" />
         <activity
             android:name=".ModelActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".greendao.GreenDaoActivity" />
         <activity android:name=".server.ServiceActivity" />

@@ -23,7 +23,9 @@ public class WaveProgressActivity extends AppCompatActivity {
 
 
         tvProgress.setOnClickListener(v -> mWaveView.startAnimator(3000, 0.80f));
-        //mWaveView.startAnimator();
+
+
+//        mWaveView.startAnimator();
 //        waveProgressView.setDrawSecondWave(true);
 //        waveProgressView.setTextView(tvProgress);
 //        waveProgressView.setOnAnimationListener(new WaveProgressView.OnAnimationListener() {

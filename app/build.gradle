@@ -52,4 +52,12 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
 // CameraX view 集合，比如 cameraview，preview等
     implementation "androidx.camera:camera-view:1.0.0-alpha10"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.1.0"
+// alternatively, just ViewModel
+    implementation "android.arch.lifecycle:viewmodel:1.1.0"
+// alternatively, just LiveData
+    implementation "android.arch.lifecycle:livedata:1.1.0"
+
 }

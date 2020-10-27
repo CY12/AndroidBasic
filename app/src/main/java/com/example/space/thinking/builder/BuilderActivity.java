@@ -14,6 +14,6 @@ public class BuilderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_builder);
         Home home=new Home.Builder("asll")
                 .setGarden("hy")
-                .builder();
+                .build();
     }
 }
