@@ -1,6 +1,7 @@
 package com.example.space.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 
@@ -15,6 +16,7 @@ public abstract class BaseToolbarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("Test","BaseTool onCreate");
         setContentView(R.layout.activity_base_toolbar);
         frameLayout = findViewById(R.id.content);
         if (frameLayout != null) {

@@ -21,6 +21,7 @@ import com.example.space.base.BaseToolbarActivity;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
 import com.example.space.livedata.LiveDataActivity;
+import com.example.space.mvvm.MvvmActivity;
 import com.example.space.scroll.Scroll2Activity;
 import com.example.space.server.ServiceActivity;
 import com.example.space.singleClick.SingleActivity;
@@ -61,13 +62,16 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     private LoadingDialog loadingDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Test","MainActivity super.onCreate");
         super.onCreate(savedInstanceState);
+        Log.d("Test","MainActivity onCreate");
         initListener();
     }
 
 
     @Override
     protected int getLayoutId() {
+        Log.d("Test","MainActivity getLayoutId");
         return R.layout.activity_main;
     }
 
@@ -113,6 +117,12 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 startActivity(SingleActivity.class);
             }
         });
+        findViewById(R.id.tv_mvvm).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(MvvmActivity.class);
+            }
+        });
 //        ImageView imageView = new ImageView(this);
 //        imageView.setImageResource(R.mipmap.loading);
 //        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(30, 30);
@@ -151,7 +161,13 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
             }
         });
 
+        int c = 3;
+        c = breakPointTest(c);
 
+    }
+
+    private int breakPointTest(int a){
+        return a*3+4;
     }
 
     @Override

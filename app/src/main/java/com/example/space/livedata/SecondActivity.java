@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -66,8 +67,13 @@ public class SecondActivity extends AppCompatActivity implements Observer<Lamp> 
         });
     }
 
+    /**
+     * 当这个lamp 改变时返回上一个是会触发 onChanged
+     * @param lamp
+     */
     @Override
     public void onChanged(Lamp lamp) {
+        Log.d("Test","SecondActivity  change  ");
         if (lamp.isLight()){
             ivLamp.setImageResource(R.mipmap.lamp_light);
         }else {

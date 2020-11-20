@@ -248,6 +248,16 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_mvvm"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="600dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="MVVM"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
         </RelativeLayout>
 

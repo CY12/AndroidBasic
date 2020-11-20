@@ -6,6 +6,7 @@ import androidx.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -67,7 +68,7 @@ public class LiveDataActivity extends AppCompatActivity implements Observer<Lamp
                 startActivity(intent);
             }
         });
-
+        
         btCountTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +86,9 @@ public class LiveDataActivity extends AppCompatActivity implements Observer<Lamp
 
     @Override
     public void onChanged(Lamp lamp) {
+
+
+        Log.d("Test","FirstActivity  change  ");
         if (lamp.isLight()){
             ivLamp.setImageResource(R.mipmap.lamp_light);
         }else {
