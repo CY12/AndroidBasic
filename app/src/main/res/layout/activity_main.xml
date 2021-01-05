@@ -259,6 +259,30 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_temp"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="600dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="TEMP"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_multiRecycler"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="600dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Salary"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
         </RelativeLayout>
 
     </ScrollView>

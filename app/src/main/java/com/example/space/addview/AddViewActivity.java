@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.flexibleview.FlexibleViewTools;
+import com.example.flexibleview.RelativeViewPart;
 import com.example.space.R;
 
 public class AddViewActivity extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class AddViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_view);
         Log.d("Test","onCreate AddView");
-        findViewById(R.id.rl_all).setVisibility(View.GONE);
+//        findViewById(R.id.rl_all).setVisibility(View.GONE);
         llLinear = (LinearLayout) findViewById(R.id.ll_linear);
         rlRelative = (RelativeLayout) findViewById(R.id.rl_relative);
         tvAddChild = (TextView) findViewById(R.id.tv_add_child);
@@ -58,6 +60,14 @@ public class AddViewActivity extends AppCompatActivity {
 
             }
         });
+        TextView textView = new TextView(this);
+        textView.setTextSize(20);
+        textView.setText("FlexibleViewTools llLinear");
+        FlexibleViewTools.withLinear(textView,llLinear).setTop(100);
+        TextView textView1 = new TextView(this);
+        textView1.setText("FlexibleViewTools rlRelative");
+        textView1.setTextSize(20);
+        FlexibleViewTools.withRelative(textView1,rlRelative).setGravity(RelativeViewPart.CENTER_IN_PARENT);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.example.space;
 
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -12,27 +11,25 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.space.addview.AddViewActivity;
 import com.example.space.autoview.AutoViewActivity;
-import com.example.space.base.BaseActivity;
 import com.example.space.base.BaseToolbarActivity;
+import com.example.space.salary.Salary;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
+import com.example.space.salary.SalaryActivity;
 import com.example.space.scroll.Scroll2Activity;
 import com.example.space.server.ServiceActivity;
 import com.example.space.singleClick.SingleActivity;
+import com.example.space.temp.TempActivity;
 import com.example.space.thinking.observer.ObserverActivity;
 import com.example.space.utils.LoadingDialog;
 import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
-import com.example.space.view.HearBeatView;
 import com.example.space.wave.WaveProgressActivity;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -60,6 +57,10 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
     private LoadingDialog loadingDialog;
+    private TextView tvMultiRecycler;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Test","MainActivity super.onCreate");
@@ -77,6 +78,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
     @Override
     public void initView() {
+//        Salary salary = new Salary();
+//        salary.getData().get(0).getList().get(0).getMonth()
+
         linearLayout = findViewById(R.id.ll_all);
         tvAddView = (TextView) findViewById(R.id.tv_addView);
         tvDataBing = (TextView) findViewById(R.id.tv_dataBing);
@@ -93,6 +97,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvLoading = findViewById(R.id.tv_loading);
         relativeLayout = findViewById(R.id.relative);
         tvLoadingDialog = findViewById(R.id.tv_loading_dialog);
+        tvMultiRecycler = (TextView) findViewById(R.id.tv_multiRecycler);
+
+        tvMultiRecycler.setOnClickListener(v -> startActivity(SalaryActivity.class));
 
         findViewById(R.id.tv_scroll).setOnClickListener(v -> startActivity(Scroll2Activity.class));
         findViewById(R.id.tv_task).setOnClickListener(new View.OnClickListener() {
@@ -121,6 +128,12 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 startActivity(MvvmActivity.class);
+            }
+        });
+        findViewById(R.id.tv_temp).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(TempActivity.class);
             }
         });
 //        ImageView imageView = new ImageView(this);
