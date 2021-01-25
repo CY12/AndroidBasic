@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:gravity="center"
+   android:background="#00BCD4"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每月应缴党费"
+        />
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:id="@+id/content"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="（级别岗位工资+职务技术工资+工作性津贴+生活性津贴+养老金+个人所得税-养老金-个人所得税-实际应纳税-公积金-医保)*比例"
+        />
+    <TextView
+        android:layout_marginTop="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="确定"/>
+
+</LinearLayout>

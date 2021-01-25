@@ -1,10 +1,15 @@
 package com.example.space;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Display;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -14,6 +19,7 @@ import android.widget.Toast;
 import com.example.space.addview.AddViewActivity;
 import com.example.space.autoview.AutoViewActivity;
 import com.example.space.base.BaseToolbarActivity;
+import com.example.space.databinding.Student;
 import com.example.space.salary.Salary;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
@@ -29,6 +35,8 @@ import com.example.space.utils.LoadingDialog;
 import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.wave.WaveProgressActivity;
+import com.example.space.webview.WebActivity;
+import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -66,6 +74,12 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         Log.d("Test","MainActivity super.onCreate");
         super.onCreate(savedInstanceState);
         Log.d("Test","MainActivity onCreate");
+        String s = "{\"id\":\"3\",\n" +
+                "\"name\":\"zz\"\n" +
+                "\n" +
+                "}";
+
+        Student student = new Student();
         initListener();
     }
 
@@ -111,6 +125,10 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
             }
         });
 
+        findViewById(R.id.tv_web).setOnClickListener(v -> {
+            startActivity( WebActivity.class);
+        });
+
 
         findViewById(R.id.tv_liveData).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,6 +154,25 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 startActivity(TempActivity.class);
             }
         });
+        findViewById(R.id.tv_p).setOnClickListener(v -> {
+            startActivity(SecrityActivity.class);
+        });
+        findViewById(R.id.tv_dialog).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogTip dialogTip = new DialogTip(MainActivity.this,R.style.TipDialog);
+                Window window = dialogTip.getWindow();
+                //设置弹出位置
+                window.setGravity(Gravity.BOTTOM);
+                dialogTip.show();
+                Display display = getWindowManager().getDefaultDisplay();
+                WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
+                lp.width = (int)(display.getWidth()); //设置宽度
+                dialogTip.getWindow().setAttributes(lp);
+
+            }
+        });
+
 //        ImageView imageView = new ImageView(this);
 //        imageView.setImageResource(R.mipmap.loading);
 //        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(30, 30);

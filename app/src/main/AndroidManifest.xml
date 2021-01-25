@@ -6,6 +6,7 @@
 
     <uses-feature android:name="android.hardware.camera.any" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -15,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".salary.DetailActivity"></activity>
+        <activity android:name=".SecrityActivity"></activity>
+        <activity android:name=".webview.WebActivity" />
+        <activity android:name=".salary.DetailActivity" />
         <activity android:name=".salary.SalaryActivity" />
         <activity android:name=".temp.TempActivity" />
         <activity android:name=".mvvm.MvvmActivity" />

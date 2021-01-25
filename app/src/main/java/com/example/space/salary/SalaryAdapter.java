@@ -30,7 +30,6 @@ public class SalaryAdapter extends BaseQuickAdapter<Salary.DataBean.ListBean, Ba
         baseViewHolder.getView(R.id.tv_salary).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Test","click");
                 SalaryActivity salaryActivity = (SalaryActivity) context;
                 salaryActivity.getDetail(getDate(listBean.getMonth()),listBean.getValue());
             }
