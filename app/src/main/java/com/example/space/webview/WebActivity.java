@@ -38,7 +38,6 @@ public class WebActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web);
-
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.loadUrl("file:///android_asset/h5test.html");//加载本地asset下面的js_java_interaction.html文件
         //mWebView.loadUrl("https://www.baidu.com/");//加载本地assets下面的js_java_interaction.html文件

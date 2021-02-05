@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
+import com.bumptech.glide.Glide;
 import com.example.space.R;
 
 import java.util.AbstractList;
@@ -32,6 +34,11 @@ public class TempActivity extends AppCompatActivity {
     List<List<List<String>>> options3Items = new ArrayList<List<List<String>>>();
     List<List<String>> options2Items = new ArrayList<List<String>>();
 
+    private ImageView ivTemp;
+
+
+
+
 
 
 
@@ -39,6 +46,10 @@ public class TempActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
+        ivTemp = (ImageView) findViewById(R.id.iv_temp);
+        //http://121.196.167.157:9090/image/1611718168025.jpg
+        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
+
         options2Items.add(options1Items);
         options2Items.add(options11Items);
         options2Items.add(options111Items);

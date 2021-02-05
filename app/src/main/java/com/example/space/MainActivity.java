@@ -114,7 +114,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvMultiRecycler = (TextView) findViewById(R.id.tv_multiRecycler);
 
         tvMultiRecycler.setOnClickListener(v -> startActivity(SalaryActivity.class));
-
+        findViewById(R.id.tv_softInput).setOnClickListener(v -> {
+            startActivity(SoftInputActivity.class);
+        });
         findViewById(R.id.tv_scroll).setOnClickListener(v -> startActivity(Scroll2Activity.class));
         findViewById(R.id.tv_task).setOnClickListener(new View.OnClickListener() {
             @Override
