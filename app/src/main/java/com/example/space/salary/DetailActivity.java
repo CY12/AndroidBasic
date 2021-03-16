@@ -1,10 +1,13 @@
 package com.example.space.salary;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.TextView;
 
@@ -27,7 +30,24 @@ public class DetailActivity extends AppCompatActivity {
     private TextView tvRankSalary;
     private TextView tvOther;
 
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+        }
+    };
+    Runnable runnable = new Runnable() {
+        @Override
+        public void run() {
 
+        }
+    };
+    Detail detail = new Detail(){
+        @Override
+        public String toString() {
+            return super.toString();
+        }
+    };
 
 
 
@@ -47,6 +67,8 @@ public class DetailActivity extends AppCompatActivity {
         total.setText(total1+"元");
         String date = getIntent().getExtras().getString("date");
         getDetail(date);
+
+
 
     }
 

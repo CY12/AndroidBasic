@@ -191,6 +191,7 @@ public class WebActivity extends AppCompatActivity {
         String content="[{\"avatar\":\"\",\"check\":true,\"defaultCheck\":false,\"deptName\":\"测试部\",\"jmUserId\":\"u249534\",\"name\":\"小白楼宇\",\"userId\":\"108117\"},{\"check\":true,\"defaultCheck\":false,\"deptName\":\"测试部\",\"jmUserId\":\"u262571\",\"name\":\"孙畅\",\"userId\":\"109659\"}]";
         mWebView.loadUrl("javascript:alertMessage(\""   +content+   "\")"   );
         String json = "";
+
         mWebView.loadUrl("javascript:choosenPerson('" + json +"')"  );//单引号 有时\会出错
         //Android调用有返回值js方法，安卓4.4以上才能用这个方法
         mWebView.evaluateJavascript("sum(1,2)", new ValueCallback<String>() {

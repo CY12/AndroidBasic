@@ -6,11 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".temp.TempActivity">
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/iv_temp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        />
+    <TextView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="按钮"
+        android:textSize="30dp"
+        android:padding="20dp"
+
         />
 
 </RelativeLayout>

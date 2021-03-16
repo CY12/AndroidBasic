@@ -291,4 +291,14 @@ public class Detail {
             this.taxableWages = taxableWages;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Detail{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                ", currentTime=" + currentTime +
+                '}';
+    }
 }

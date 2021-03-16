@@ -1,11 +1,10 @@
-package com.example.space.server;
+package com.example.space.service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
 import android.util.Log;
 
 

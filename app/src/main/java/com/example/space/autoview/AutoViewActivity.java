@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.example.space.R;
 import com.example.space.view.PopupView;
 
@@ -33,6 +34,7 @@ public class AutoViewActivity extends AppCompatActivity {
                 PopupView.topPopup(test, mHeight);
             }
         });
+
         linearLayout.getViewTreeObserver().addOnGlobalLayoutListener(
                 new ViewTreeObserver.OnGlobalLayoutListener() {
 

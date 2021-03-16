@@ -120,7 +120,7 @@
                 android:layout_marginTop="200dp"
                 android:background="@drawable/tv_20"
                 android:gravity="center"
-                android:text="Service"
+                android:text="Camera2"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
@@ -326,6 +326,65 @@
                 android:text="SOFTINPUT"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_reflex"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="800dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="REFLEX"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_download"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="800dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="DOWNLOAD"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_broadcast"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="900dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="BROADCAST"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_content_provider"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="900dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="ContentProvider"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+            <TextView
+                android:id="@+id/tv_autoImageView"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="900dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="BIGIMAGE"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
 
 
         </RelativeLayout>

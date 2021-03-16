@@ -1,8 +1,13 @@
 package com.example.space.temp;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -12,6 +17,7 @@ import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.example.space.R;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.AbstractList;
 import java.util.ArrayList;
@@ -34,10 +40,23 @@ public class TempActivity extends AppCompatActivity {
     List<List<List<String>>> options3Items = new ArrayList<List<List<String>>>();
     List<List<String>> options2Items = new ArrayList<List<String>>();
 
-    private ImageView ivTemp;
+    private PhotoView ivTemp;
 
 
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            Log.e("Test",Thread.currentThread().getName());
+            try {
+                Thread.sleep(7000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            Log.e("Test","2s后");
 
+        }
+    };
 
 
 
@@ -46,10 +65,23 @@ public class TempActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
-        ivTemp = (ImageView) findViewById(R.id.iv_temp);
+        ivTemp =  findViewById(R.id.iv_temp);
         //http://121.196.167.157:9090/image/1611718168025.jpg
-        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
+//        ivTemp.setImageResource(R.mipmap.big);
+//        Glide.with(this).load(R.mipmap.big).into(ivTemp);
+//        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
 
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName("com.example.contentproviderdemo","com.example.contentproviderdemo.MainActivity2");
+                intent.putExtra("app","space");
+                startActivityForResult(intent,200);
+//                handler.post(null);
+//                Log.e("Test","post之后");
+            }
+        });
         options2Items.add(options1Items);
         options2Items.add(options11Items);
         options2Items.add(options111Items);
@@ -73,5 +105,16 @@ public class TempActivity extends AppCompatActivity {
         }).build();
         pvOptions.setPicker(options1Items, options2Items, options3Items);
         pvOptions.show();
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("Test","request"+requestCode+"result"+resultCode);
+        if (requestCode == 200 && resultCode == 200){
+            Log.e("Test","成功返回");
+            if (data != null){
+                Log.e("Test","获取到信息"+data.getStringExtra("data"));
+            }
+        }
     }
 }

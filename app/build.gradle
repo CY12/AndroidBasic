@@ -52,7 +52,7 @@ dependencies {
 // CameraX 生命周期
     implementation "androidx.camera:camera-lifecycle:$camerax_version"
 // CameraX view 集合，比如 cameraview，preview等
-    implementation "androidx.camera:camera-view:1.0.0-alpha10"
+//    implementation "androidx.camera:camera-view:1.0.0-alpha10"
 
     // ViewModel and LiveData
     implementation "android.arch.lifecycle:extensions:1.1.0"
@@ -79,5 +79,10 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.4.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.4.0'
     implementation 'jp.wasabeef:glide-transformations:2.0.2'//图形变换依赖库
+
+    implementation 'com.arialyy.aria:core:3.8.15'
+    annotationProcessor 'com.arialyy.aria:compiler:3.8.15'
+
+    implementation 'com.github.chrisbanes:PhotoView:2.3.0'
 
 }

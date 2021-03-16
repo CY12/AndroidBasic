@@ -1,4 +1,4 @@
-package com.example.space.server;
+package com.example.space.service;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -18,6 +17,7 @@ import android.widget.Chronometer;
 import android.widget.TextView;
 
 import com.example.space.R;
+import com.example.space.SecrityActivity;
 
 public class ServiceActivity extends AppCompatActivity {
 
@@ -108,12 +108,12 @@ public class ServiceActivity extends AppCompatActivity {
     private ServiceConnection c=new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-
+            Log.e("Test","bindService onServiceConnected");
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
-
+            Log.e("Test","bindService onServiceDisconnected");
         }
     };
 
@@ -122,6 +122,7 @@ public class ServiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service);
+
         tvStart = (TextView) findViewById(R.id.tv_start);
         chronometer = (Chronometer) findViewById(R.id.tv_chronometer);
         tvTime=findViewById(R.id.tv_time);
@@ -137,6 +138,12 @@ public class ServiceActivity extends AppCompatActivity {
         Intent intent1=new Intent(ServiceActivity.this,TimeService.class);
         intent1.putExtra("time",60);
         startService(intent1);
+
+
+//        Intent intent3 = new Intent(ServiceActivity.this,BindService.class);
+//        startService(intent3);
+//        Intent intent2=new Intent(ServiceActivity.this,BindService.class);
+//        bindService(intent2,c,Context.BIND_AUTO_CREATE);
 //        Intent intent1=new Intent(ServiceActivity.this,TestService.class);
 //        startService(intent1);
 //
@@ -226,6 +233,13 @@ public class ServiceActivity extends AppCompatActivity {
                 }
                 chronometer.setText(time+"");
             }
+        });
+        findViewById(R.id.tv_start_type).setOnClickListener(v -> {
+            Intent intent4 = new Intent(this,ServiceTypeActivity.class);
+            startActivity(intent4);
+        });
+        findViewById(R.id.unBindService).setOnClickListener(v -> {
+            unbindService(c);
         });
     }
 

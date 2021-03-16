@@ -27,6 +27,9 @@ public class SalaryAdapter extends BaseQuickAdapter<Salary.DataBean.ListBean, Ba
 
     @Override
     protected void convert(BaseViewHolder baseViewHolder, Salary.DataBean.ListBean listBean) {
+        // glide 显示图片时可以根据 view tag 村的position 与当前position 比较加载
+        baseViewHolder.getView(R.id.tv_month).setTag(R.id.tv_month,baseViewHolder.getAdapterPosition());
+
         // 隐藏item
         /*RecyclerView.LayoutParams param = (RecyclerView.LayoutParams) helper.getView(R.id.rl_party).getLayoutParams();
         if (Integer.parseInt(item.getValue()) == 0){

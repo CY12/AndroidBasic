@@ -1,6 +1,5 @@
 package com.example.space;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -19,15 +18,21 @@ import android.widget.Toast;
 import com.example.space.addview.AddViewActivity;
 import com.example.space.autoview.AutoViewActivity;
 import com.example.space.base.BaseToolbarActivity;
+import com.example.space.broadcast.BroadcastActivity;
+import com.example.space.contentprovider.ContentProviderActivity;
 import com.example.space.databinding.Student;
-import com.example.space.salary.Salary;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
+import com.example.space.download.DownloadActivity;
+import com.example.space.ipc.IpcActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
+import com.example.space.picture.AutoPictureActivity;
+import com.example.space.reflex.ReflexActivity;
 import com.example.space.salary.SalaryActivity;
 import com.example.space.scroll.Scroll2Activity;
-import com.example.space.server.ServiceActivity;
+import com.example.space.service.ServiceActivity;
+import com.example.space.service.ServiceTypeActivity;
 import com.example.space.singleClick.SingleActivity;
 import com.example.space.temp.TempActivity;
 import com.example.space.thinking.observer.ObserverActivity;
@@ -36,7 +41,6 @@ import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.wave.WaveProgressActivity;
 import com.example.space.webview.WebActivity;
-import com.google.gson.Gson;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,6 +65,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     RelativeLayout relativeLayout;
     boolean isRunning = false;
     TextView tvLoadingDialog;
+    private TextView tvReflex;
+
+
 
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
@@ -112,7 +119,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         relativeLayout = findViewById(R.id.relative);
         tvLoadingDialog = findViewById(R.id.tv_loading_dialog);
         tvMultiRecycler = (TextView) findViewById(R.id.tv_multiRecycler);
-
+        tvReflex = findViewById(R.id.tv_reflex);
         tvMultiRecycler.setOnClickListener(v -> startActivity(SalaryActivity.class));
         findViewById(R.id.tv_softInput).setOnClickListener(v -> {
             startActivity(SoftInputActivity.class);
@@ -159,6 +166,14 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);
         });
+
+        findViewById(R.id.tv_broadcast).setOnClickListener(v -> {
+            startActivity(BroadcastActivity.class);
+        });
+        findViewById(R.id.tv_content_provider).setOnClickListener(v -> {
+            startActivity(IpcActivity.class);
+        });
+
         findViewById(R.id.tv_dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,6 +188,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 dialogTip.getWindow().setAttributes(lp);
 
             }
+        });
+        findViewById(R.id.tv_autoImageView).setOnClickListener(v -> {
+            startActivity(AutoPictureActivity.class);
         });
 
 //        ImageView imageView = new ImageView(this);
@@ -212,6 +230,11 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 }
             }
         });
+
+        findViewById(R.id.tv_download).setOnClickListener(v -> {
+            startActivity(DownloadActivity.class);
+        });
+
 
         int c = 3;
         c = breakPointTest(c);
@@ -263,6 +286,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvAccessibility.setOnClickListener(this);
         tvModel.setOnClickListener(this);
         waveProgress.setOnClickListener(this);
+        tvReflex.setOnClickListener(this);
     }
 
     @Override
@@ -281,6 +305,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 startActivity(AutoViewActivity.class);
                 break;
             case R.id.tv_service:
+//                startActivity(ServiceTypeActivity.class);
                 startActivity(ServiceActivity.class);
                 break;
             case R.id.tv_play:
@@ -313,6 +338,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 break;
             case R.id.tv_waveProgress:
                 startActivity(WaveProgressActivity.class);
+                break;
+            case R.id.tv_reflex:
+                startActivity(ReflexActivity.class);
                 break;
             default:
                 break;
