@@ -19,5 +19,6 @@ public class MyViewModel extends ViewModel {
         // rebase 开发
         // rebase 开发 开发
         // rebase
+        // fetch 之后提交代码
     }
 }
