@@ -13,6 +13,11 @@ import android.widget.ImageView;
 
 import com.example.space.R;
 
+/**
+ * scrollTo是绝对滚动(以view的内容的中心为原点，如果x为负值，则向右滚，y为负值向下滚)，scrollBy是相对滚动
+ * 他们的相同点就是滚动的都是view中的内容，而不是view本身，view本身的getX，getY方法得到的值是不会变的
+ *
+ */
 public class Scroll2Activity extends AppCompatActivity {
     private float mx,my;
     @Override

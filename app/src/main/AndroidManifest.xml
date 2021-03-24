@@ -6,6 +6,10 @@
 
     <uses-feature android:name="android.hardware.camera.any" />
 
+        <!-- 清除屏保需要的权限 -->
+        <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+        <!-- 唤醒屏幕需要的权限 -->
+        <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -24,7 +28,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".picture.AutoPictureActivity"></activity>
+        <activity android:name=".light.LightPhoneActivity"></activity>
+        <activity android:name=".picture.AutoPictureActivity" />
 
         <service
             android:name=".ipc.AidlService"

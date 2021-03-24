@@ -84,5 +84,7 @@ dependencies {
     annotationProcessor 'com.arialyy.aria:compiler:3.8.15'
 
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
 
 }

@@ -16,9 +16,11 @@ import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bumptech.glide.Glide;
+import com.example.space.MainActivity;
 import com.example.space.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
+import java.net.HttpURLConnection;
 import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,15 +71,17 @@ public class TempActivity extends AppCompatActivity {
         //http://121.196.167.157:9090/image/1611718168025.jpg
 //        ivTemp.setImageResource(R.mipmap.big);
 //        Glide.with(this).load(R.mipmap.big).into(ivTemp);
-//        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
+        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
 
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClassName("com.example.contentproviderdemo","com.example.contentproviderdemo.MainActivity2");
-                intent.putExtra("app","space");
-                startActivityForResult(intent,200);
+                Intent intent = new Intent(TempActivity.this, MainActivity.class);
+                startActivity(intent);
+//                Intent intent = new Intent();
+//                intent.setClassName("com.example.contentproviderdemo","com.example.contentproviderdemo.MainActivity2");
+//                intent.putExtra("app","space");
+//                startActivityForResult(intent,200);
 //                handler.post(null);
 //                Log.e("Test","post之后");
             }
@@ -115,6 +119,14 @@ public class TempActivity extends AppCompatActivity {
             if (data != null){
                 Log.e("Test","获取到信息"+data.getStringExtra("data"));
             }
+        }
+    }
+
+    private void paramsTest(int...params){
+        if (params.length == 0)return;
+        for (int i=0;i<params.length;i++){
+            Log.e("Test",params[i]+"");
+
         }
     }
 }

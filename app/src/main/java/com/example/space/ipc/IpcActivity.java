@@ -64,7 +64,10 @@ public class IpcActivity extends AppCompatActivity {
         public void onMessageSuccess(String message) {
             if (messages != null) {
                 messages.add(message);
-                handler.sendEmptyMessage(1);
+                Message message1 = new Message();
+                message1.obj = message;
+                handler.sendMessage(message1);
+//                handler.sendEmptyMessage(1);
             }
         }
     };
@@ -72,7 +75,10 @@ public class IpcActivity extends AppCompatActivity {
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(@NonNull Message msg) {
+            String s = tvResult.getText().toString() + "  ";
 
+            tvResult.setText(s + msg.obj.toString());
+            Log.e("Test", "收到 handleMessage" + msg.obj.toString());
         }
     };
     private ServiceConnection serviceConnection = new ServiceConnection() {
@@ -127,12 +133,20 @@ public class IpcActivity extends AppCompatActivity {
             }
 
         });
-
+        initAidl();
         tvAidl.setOnClickListener(v -> {
+            try {
+                iAidlInterface.sendMessage("space 消息" + num);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            Log.e("Test", "space 发送 消息" + num);
+            num++;
         });
 
     }
 
+    private int num;
 
     private String getData() {
         if (TextUtils.isEmpty(etSend.getText().toString())) {
@@ -151,8 +165,9 @@ public class IpcActivity extends AppCompatActivity {
     }
 
     private void initAidl() {
-        Intent intent=new Intent(getApplicationContext(),AidlService.class);
-        bindService(intent,serviceConnection,BIND_AUTO_CREATE);
+        Log.e("Test", "初始化aidl");
+        Intent intent = new Intent(getApplicationContext(), AidlService.class);
+        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
     }
 
     @Override
@@ -167,6 +182,7 @@ public class IpcActivity extends AppCompatActivity {
             }
         }
     }
+
     @Override
     protected void onDestroy() {
         //解除注册

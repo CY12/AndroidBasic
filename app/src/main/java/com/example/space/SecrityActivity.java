@@ -8,6 +8,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class SecrityActivity extends AppCompatActivity {
 
     private EditText etInput;
@@ -24,6 +36,21 @@ public class SecrityActivity extends AppCompatActivity {
         etInput = (EditText) findViewById(R.id.et_input);
         tvConfirm = (TextView) findViewById(R.id.tv_confirm);
         tvPwd = findViewById(R.id.tv_pwd);
+
+        OkHttpClient okHttpClient = new OkHttpClient();
+        Request request = new Request.Builder().url("").build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+
+            }
+        });
 
         tvConfirm.setOnClickListener(v -> {
             if (etInput.getText().toString().length()<3){

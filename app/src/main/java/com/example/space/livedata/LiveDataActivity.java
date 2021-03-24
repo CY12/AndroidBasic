@@ -1,6 +1,7 @@
 package com.example.space.livedata;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import android.content.Intent;
@@ -23,6 +24,9 @@ public class LiveDataActivity extends AppCompatActivity implements Observer<Lamp
     private Button btCountTime;
     private TextView tvTime;
     private Button btStopTime;
+
+    public MutableLiveData<Lamp> lampMutableLiveData = new MutableLiveData<>();
+
 
 
 
@@ -80,6 +84,13 @@ public class LiveDataActivity extends AppCompatActivity implements Observer<Lamp
             @Override
             public void onClick(View v) {
                 handler.removeCallbacks(runnable);
+            }
+        });
+        // 另一种方式
+        lampMutableLiveData.observe(this, new Observer<Lamp>() {
+            @Override
+            public void onChanged(Lamp lamp) {
+
             }
         });
     }

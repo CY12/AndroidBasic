@@ -25,6 +25,7 @@ import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
 import com.example.space.download.DownloadActivity;
 import com.example.space.ipc.IpcActivity;
+import com.example.space.light.LightPhoneActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
 import com.example.space.picture.AutoPictureActivity;
@@ -41,6 +42,9 @@ import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.wave.WaveProgressActivity;
 import com.example.space.webview.WebActivity;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -68,19 +72,19 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     private TextView tvReflex;
 
 
-
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
     private LoadingDialog loadingDialog;
     private TextView tvMultiRecycler;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Test","MainActivity super.onCreate");
+        Log.d("Test", "MainActivity super.onCreate");
         super.onCreate(savedInstanceState);
-        Log.d("Test","MainActivity onCreate");
+        Log.d("Test", "MainActivity onCreate");
+
+        Log.d(TAG,"onCreate");
         String s = "{\"id\":\"3\",\n" +
                 "\"name\":\"zz\"\n" +
                 "\n" +
@@ -93,7 +97,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
     @Override
     protected int getLayoutId() {
-        Log.d("Test","MainActivity getLayoutId");
+        Log.d("Test", "MainActivity getLayoutId");
         return R.layout.activity_main;
     }
 
@@ -135,7 +139,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         });
 
         findViewById(R.id.tv_web).setOnClickListener(v -> {
-            startActivity( WebActivity.class);
+            startActivity(WebActivity.class);
         });
 
 
@@ -173,18 +177,20 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_content_provider).setOnClickListener(v -> {
             startActivity(IpcActivity.class);
         });
-
+        findViewById(R.id.tv_light).setOnClickListener(v -> {
+            startActivity(LightPhoneActivity.class);
+        });
         findViewById(R.id.tv_dialog).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogTip dialogTip = new DialogTip(MainActivity.this,R.style.TipDialog);
+                DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);
                 Window window = dialogTip.getWindow();
                 //设置弹出位置
                 window.setGravity(Gravity.BOTTOM);
                 dialogTip.show();
                 Display display = getWindowManager().getDefaultDisplay();
                 WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
-                lp.width = (int)(display.getWidth()); //设置宽度
+                lp.width = (int) (display.getWidth()); //设置宽度
                 dialogTip.getWindow().setAttributes(lp);
 
             }
@@ -199,16 +205,16 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 //        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 //        imageView.setLayoutParams(layoutParams);
 //        relativeLayout.addView(imageView);
-        ImageView imageView =new ImageView(this);
+        ImageView imageView = new ImageView(this);
         TextView textView = new TextView(this);
         tvLoading.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isRunning){
-                    ProgressUtils.stopAnimator(relativeLayout,imageView);
+                if (isRunning) {
+                    ProgressUtils.stopAnimator(relativeLayout, imageView);
                     isRunning = !isRunning;
-                }else {
-                    ProgressUtils.rotate(imageView,relativeLayout,1000);
+                } else {
+                    ProgressUtils.rotate(imageView, relativeLayout, 1000);
                     isRunning = !isRunning;
                 }
 
@@ -217,14 +223,14 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvLoadingDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isRunning){
-                    if (loadingDialog == null){
-                        loadingDialog = new LoadingDialog(MainActivity.this,R.style.LoadingDialog,1000);
+                if (!isRunning) {
+                    if (loadingDialog == null) {
+                        loadingDialog = new LoadingDialog(MainActivity.this, R.style.LoadingDialog, 1000);
                         loadingDialog.show();
 
-                       // loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                        // loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                     }
-                }else {
+                } else {
                     loadingDialog.dismiss();
                     loadingDialog = null;
                 }
@@ -241,15 +247,10 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
     }
 
-    private int breakPointTest(int a){
-        return a*3+4;
+    private int breakPointTest(int a) {
+        return a * 3 + 4;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d("Test", "MainActivity onResume");
-    }
 
     public void initData() {
 
@@ -357,9 +358,51 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         }
     }
 
+    String TAG = "ModelActivity__MAIN";
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d(TAG,"onStart");
+    }
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("ModelActivity", "MainActivity destroy");
+        Log.d(TAG, "onDestroy");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    public void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        Log.d(TAG, "onNewIntent");
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
+    public void getMessage(String message){
+
     }
 }

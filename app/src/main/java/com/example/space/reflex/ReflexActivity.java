@@ -8,6 +8,8 @@ import android.util.Log;
 
 import com.example.space.R;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

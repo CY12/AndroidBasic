@@ -54,6 +54,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     }
 
+
     @Override
     public void setContentView(View view) {
 
