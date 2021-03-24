@@ -11,5 +11,6 @@ public class SoftInputActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soft_input);
         // merge 分支 开发 开发
+        // merge 分支 开发 开发 开发
     }
 }
