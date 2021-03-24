@@ -36,7 +36,7 @@ public class SecrityActivity extends AppCompatActivity {
         etInput = (EditText) findViewById(R.id.et_input);
         tvConfirm = (TextView) findViewById(R.id.tv_confirm);
         tvPwd = findViewById(R.id.tv_pwd);
-
+        // 这是MainGitTest 3
         OkHttpClient okHttpClient = new OkHttpClient();
         Request request = new Request.Builder().url("").build();
         Call call = okHttpClient.newCall(request);
