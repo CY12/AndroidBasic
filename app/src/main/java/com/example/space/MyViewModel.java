@@ -16,6 +16,10 @@ public class MyViewModel extends ViewModel {
     }
 
     private void initName(){
-
+        // rebase 开发
+        // rebase 开发 开发
+        // rebase
+        // fetch 之后提交代码
+        // pull 之前提交代码
     }
 }
