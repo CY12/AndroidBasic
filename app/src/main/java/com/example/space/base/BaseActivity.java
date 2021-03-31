@@ -1,82 +1,63 @@
 package com.example.space.base;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
+
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.space.R;
 
+public abstract class BaseActivity<V extends BaseView, P extends BasePresenter> extends AppCompatActivity {
+    private P presenter;
+    private V view;
 
-public abstract class BaseActivity extends AppCompatActivity {
-
-    private LinearLayout parentLinearLayout;//把父类activity和子类activity的view都add到这里
-
+    public P getPresenter() {
+        return presenter;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base);
-        //initContentView(R.layout.activity_base);
-        //getWindow().setBackgroundDrawable(null);
-        //setContentView(R.layout.activity_base);
+        setContentView(getLayoutId());
+//        getWindow().setBackgroundDrawable(null);
+        if (presenter == null) {
+            presenter = createPresenter();
+        }
+        if (view == null) {
+            view = createView();
+        }
+        if (presenter != null && view != null) {
+            presenter.attachView(view);
+        }
+        if (Build.VERSION.SDK_INT >= 21) {
+            View decorView = getWindow().getDecorView();
+            decorView.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+            getWindow().setStatusBarColor(Color.TRANSPARENT);
+        }
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        initView();
-        initListener();
-        initData();
+        init();
     }
 
-    /**
-     * 初始化contentview
-     */
-    private void initContentView(int layoutResID) {
-        ViewGroup viewGroup = (ViewGroup) findViewById(android.R.id.content);
-        viewGroup.removeAllViews();
-        parentLinearLayout = new LinearLayout(this);
-        parentLinearLayout.setOrientation(LinearLayout.VERTICAL);
-        viewGroup.addView(parentLinearLayout);
-        LayoutInflater.from(this).inflate(layoutResID, parentLinearLayout, true);
+    public abstract int getLayoutId();
 
+    public abstract P createPresenter();
 
-    }
+    public abstract V createView();
+
+    public abstract void init();
 
     @Override
-    public void setContentView(int layoutResID) {
-
-        LayoutInflater.from(this).inflate(layoutResID, parentLinearLayout, true);
-
+    protected void onDestroy() {
+        super.onDestroy();
+        if (presenter != null) {
+//            presenter.detachView();
+        }
     }
-
-
-    @Override
-    public void setContentView(View view) {
-
-        parentLinearLayout.addView(view);
-    }
-
-    @Override
-    public void setContentView(View view, ViewGroup.LayoutParams params) {
-
-        parentLinearLayout.addView(view, params);
-
-    }
-
-    public abstract void initView();
-
-    public abstract void initData();
-
-    public abstract void initListener();
-
-    public void showDialog(String text) {
-        BaseDialog dialog = new BaseDialog(this, text);
-        dialog.show();
-    }
-
 }

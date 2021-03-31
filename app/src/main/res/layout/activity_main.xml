@@ -395,6 +395,40 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_animator"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="120dp"
+                android:layout_marginTop="1000dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Animator"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_leak"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="1000dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Leak"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/tv_fragment"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="1100dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Fragment"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
 
         </RelativeLayout>

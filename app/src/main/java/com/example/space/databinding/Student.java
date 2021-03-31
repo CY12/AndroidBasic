@@ -56,4 +56,13 @@ public class Student extends BaseObservable {
         this.addr = student.addr;
         notifyChange();
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", addr='" + addr + '\'' +
+                ", sex='" + sex + '\'' +
+                '}';
+    }
 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.space.addview.AddViewActivity;
+import com.example.space.animator.AnimatorActivity;
 import com.example.space.autoview.AutoViewActivity;
 import com.example.space.base.BaseToolbarActivity;
 import com.example.space.broadcast.BroadcastActivity;
@@ -24,7 +25,9 @@ import com.example.space.databinding.Student;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
 import com.example.space.download.DownloadActivity;
+import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
+import com.example.space.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
@@ -42,9 +45,11 @@ import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.wave.WaveProgressActivity;
 import com.example.space.webview.WebActivity;
+import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -90,7 +95,11 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 "\n" +
                 "}";
 
-        Student student = new Student();
+        Log.e("Test","s "+s);
+        Gson gson = new Gson();
+        Student student = gson.fromJson(s,Student.class);
+        Log.e("Test",student.toString());
+
         initListener();
     }
 
@@ -125,17 +134,17 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvMultiRecycler = (TextView) findViewById(R.id.tv_multiRecycler);
         tvReflex = findViewById(R.id.tv_reflex);
         tvMultiRecycler.setOnClickListener(v -> startActivity(SalaryActivity.class));
+
+        findViewById(R.id.tv_fragment).setOnClickListener(v -> {startActivity(FragmentActivity.class);});
         findViewById(R.id.tv_softInput).setOnClickListener(v -> {
             startActivity(SoftInputActivity.class);
         });
+        findViewById(R.id.tv_leak).setOnClickListener(v -> {startActivity(LeakActivity.class);});
         findViewById(R.id.tv_scroll).setOnClickListener(v -> startActivity(Scroll2Activity.class));
-        findViewById(R.id.tv_task).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ModelActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent);
-            }
+        findViewById(R.id.tv_task).setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ModelActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         });
 
         findViewById(R.id.tv_web).setOnClickListener(v -> {
@@ -143,30 +152,10 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         });
 
 
-        findViewById(R.id.tv_liveData).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(LiveDataActivity.class);
-            }
-        });
-        findViewById(R.id.tv_singleClick).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(SingleActivity.class);
-            }
-        });
-        findViewById(R.id.tv_mvvm).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(MvvmActivity.class);
-            }
-        });
-        findViewById(R.id.tv_temp).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(TempActivity.class);
-            }
-        });
+        findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
+        findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));
+        findViewById(R.id.tv_mvvm).setOnClickListener(v -> startActivity(MvvmActivity.class));
+        findViewById(R.id.tv_temp).setOnClickListener(v -> startActivity(TempActivity.class));
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);
         });
@@ -180,20 +169,21 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_light).setOnClickListener(v -> {
             startActivity(LightPhoneActivity.class);
         });
-        findViewById(R.id.tv_dialog).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);
-                Window window = dialogTip.getWindow();
-                //设置弹出位置
-                window.setGravity(Gravity.BOTTOM);
-                dialogTip.show();
-                Display display = getWindowManager().getDefaultDisplay();
-                WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
-                lp.width = (int) (display.getWidth()); //设置宽度
-                dialogTip.getWindow().setAttributes(lp);
 
-            }
+        findViewById(R.id.tv_animator).setOnClickListener(v -> {
+            startActivity(AnimatorActivity.class);
+        });
+        findViewById(R.id.tv_dialog).setOnClickListener((View.OnClickListener) v -> {
+            DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);
+            Window window = dialogTip.getWindow();
+            //设置弹出位置
+            window.setGravity(Gravity.BOTTOM);
+            dialogTip.show();
+            Display display = getWindowManager().getDefaultDisplay();
+            WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
+            lp.width = (int) (display.getWidth()); //设置宽度
+            dialogTip.getWindow().setAttributes(lp);
+
         });
         findViewById(R.id.tv_autoImageView).setOnClickListener(v -> {
             startActivity(AutoPictureActivity.class);
@@ -207,33 +197,27 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 //        relativeLayout.addView(imageView);
         ImageView imageView = new ImageView(this);
         TextView textView = new TextView(this);
-        tvLoading.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isRunning) {
-                    ProgressUtils.stopAnimator(relativeLayout, imageView);
-                    isRunning = !isRunning;
-                } else {
-                    ProgressUtils.rotate(imageView, relativeLayout, 1000);
-                    isRunning = !isRunning;
-                }
-
+        tvLoading.setOnClickListener(v -> {
+            if (isRunning) {
+                ProgressUtils.stopAnimator(relativeLayout, imageView);
+                isRunning = !isRunning;
+            } else {
+                ProgressUtils.rotate(imageView, relativeLayout, 1000);
+                isRunning = !isRunning;
             }
-        });
-        tvLoadingDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isRunning) {
-                    if (loadingDialog == null) {
-                        loadingDialog = new LoadingDialog(MainActivity.this, R.style.LoadingDialog, 1000);
-                        loadingDialog.show();
 
-                        // loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                    }
-                } else {
-                    loadingDialog.dismiss();
-                    loadingDialog = null;
+        });
+        tvLoadingDialog.setOnClickListener(v -> {
+            if (!isRunning) {
+                if (loadingDialog == null) {
+                    loadingDialog = new LoadingDialog(MainActivity.this, R.style.LoadingDialog, 1000);
+                    loadingDialog.show();
+
+                    // loadingDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
                 }
+            } else {
+                loadingDialog.dismiss();
+                loadingDialog = null;
             }
         });
 
