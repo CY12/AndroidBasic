@@ -1,6 +1,4 @@
-package com.example.space.salary;
-
-import android.widget.TextView;
+package com.example.space.recycleview;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;

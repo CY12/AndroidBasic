@@ -1,10 +1,8 @@
-package com.example.space.salary;
+package com.example.space.recycleview;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,8 +12,6 @@ import android.widget.TextView;
 import com.example.space.R;
 import com.example.space.http.HttpUtils;
 import com.google.gson.GsonBuilder;
-
-import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;

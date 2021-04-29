@@ -20,7 +20,6 @@ import com.example.space.animator.AnimatorActivity;
 import com.example.space.autoview.AutoViewActivity;
 import com.example.space.base.BaseToolbarActivity;
 import com.example.space.broadcast.BroadcastActivity;
-import com.example.space.contentprovider.ContentProviderActivity;
 import com.example.space.databinding.Student;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
@@ -32,11 +31,11 @@ import com.example.space.light.LightPhoneActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
 import com.example.space.picture.AutoPictureActivity;
+import com.example.space.recycleview.RecyclerViewActivity;
 import com.example.space.reflex.ReflexActivity;
-import com.example.space.salary.SalaryActivity;
+import com.example.space.recycleview.SalaryActivity;
 import com.example.space.scroll.Scroll2Activity;
 import com.example.space.service.ServiceActivity;
-import com.example.space.service.ServiceTypeActivity;
 import com.example.space.singleClick.SingleActivity;
 import com.example.space.temp.TempActivity;
 import com.example.space.thinking.observer.ObserverActivity;
@@ -49,7 +48,6 @@ import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -133,7 +131,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         tvLoadingDialog = findViewById(R.id.tv_loading_dialog);
         tvMultiRecycler = (TextView) findViewById(R.id.tv_multiRecycler);
         tvReflex = findViewById(R.id.tv_reflex);
-        tvMultiRecycler.setOnClickListener(v -> startActivity(SalaryActivity.class));
+        tvMultiRecycler.setOnClickListener(v -> startActivity(RecyclerViewActivity.class));
 
         findViewById(R.id.tv_fragment).setOnClickListener(v -> {startActivity(FragmentActivity.class);});
         findViewById(R.id.tv_softInput).setOnClickListener(v -> {

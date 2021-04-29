@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 
 public class ModelActivity extends AppCompatActivity {
     public final String TAG = "ModelActivity";
@@ -23,7 +24,6 @@ public class ModelActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         findViewById(R.id.tv_start_standard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,6 +34,15 @@ public class ModelActivity extends AppCompatActivity {
     }
 
     /**
+     *
+     * 开启一个Dialog 生命周期无变化，Dialog 相当于Activity 一个控件
+     *
+     * A开启一个透明activity B :    A-onPause -> B-onCreate -> B-onStart -> B->onResume  返回 A :  B-onPause -> A-onResume -> B-onStop -> B-onDestroy
+     *然后点击跳转时MainActivity先暂停然后停止，但是呢因为是透明主题，所以用户可见，没有执行onStop()方法，Sec 中onCreate()创建，然后启动，最后呈现给用户，
+     *
+     * 当我们按下返回键时，Sec 先执行onPause()还是因为采用透明主题，所以没有执行onStop(),MainActivity中，没有执行onRestart() onStart()而是执行了onResume，因为MainActivity已经创建，只是由用户不可见到用户可见，所以只执行了onResume(),然后Sec 继续执行onStop()和onDestroy().
+     *
+     *
      * singleTask
      * ModelActivity__MAIN: onPause -> ModelActivity: onNewIntent -> ModelActivity: onRestart -> ModelActivity: onStart -> ModelActivity: onResume -> ModelActivity__MAIN: onStop -> ModelActivity__MAIN: onDestroy
      *

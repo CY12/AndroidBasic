@@ -20,6 +20,8 @@ import com.example.space.MainActivity;
 import com.example.space.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.net.HttpURLConnection;
 import java.util.AbstractList;
 import java.util.ArrayList;
@@ -73,7 +75,6 @@ public class TempActivity extends AppCompatActivity {
 //        ivTemp.setImageResource(R.mipmap.big);
 //        Glide.with(this).load(R.mipmap.big).into(ivTemp);
         Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
-
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

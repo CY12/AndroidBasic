@@ -1,4 +1,4 @@
-package com.example.space.salary;
+package com.example.space.recycleview;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 import com.example.space.R;
 import com.example.space.http.HttpUtils;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;

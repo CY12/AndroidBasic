@@ -11,6 +11,14 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+
+//        ndk{
+//
+//            moduleName "ndkdemotest-jni"
+//            abiFilters "armeabi", "armeabi-v7a", "x86"
+//
+//        }
     }
     dataBinding {
         enabled = true
@@ -20,6 +28,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+//        externalNativeBuild {
+//            ndkBuild {
+//                path 'src/main/jni/Android.mk'
+//            }
+//        }
+//        sourceSets.main {
+//            jni.srcDirs = []
+//            jniLibs.srcDirs = ['src/main/jniLibs']
+//        }
     }
     greendao {
         schemaVersion 1

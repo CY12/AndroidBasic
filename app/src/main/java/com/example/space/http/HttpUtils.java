@@ -34,8 +34,14 @@ public class HttpUtils {
             }
         });
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+//                .addInterceptor(new HttpHeaderInterceptor())
+//                .addInterceptor(new HttpCacheInterceptor())
+//                .addInterceptor(new BaseURLInterceptor())
+//                .addInterceptor(logging)
+                ;
         httpClient.addInterceptor(logging);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://20.1.120.222:9009/wage/")
                 .client(httpClient.build())

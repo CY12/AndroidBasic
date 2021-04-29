@@ -279,7 +279,7 @@
                 android:layout_marginTop="600dp"
                 android:background="@drawable/tv_20"
                 android:gravity="center"
-                android:text="Salary"
+                android:text="RecyclerView"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 

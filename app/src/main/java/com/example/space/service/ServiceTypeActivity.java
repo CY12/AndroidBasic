@@ -20,6 +20,8 @@ public class ServiceTypeActivity extends AppCompatActivity {
     private TextView bindService;
     private TextView serviceActivity2;
 
+    private TextView tvText;
+
 
 
 
@@ -50,7 +52,11 @@ public class ServiceTypeActivity extends AppCompatActivity {
         stopService = (TextView) findViewById(R.id.stop_service);
         unbindService = (TextView) findViewById(R.id.unbind_service);
         serviceActivity2 = (TextView) findViewById(R.id.service_activity2);
-
+        tvText = (TextView) findViewById(R.id.tv_text);
+        if (getIntent() != null){
+            String text = getIntent().getStringExtra("Foreground");
+            tvText.setText(text);
+        }
         Intent intent = new Intent(ServiceTypeActivity.this,BindService.class);
         startService.setOnClickListener(v -> {
             startService(intent);

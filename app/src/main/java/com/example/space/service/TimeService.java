@@ -42,13 +42,17 @@ public class TimeService extends Service {
     @Override
     public void onDestroy(){
         super.onDestroy();
+        handler.removeCallbacksAndMessages(timeRunnable);
         Log.d("Test","服务销毁");
     }
 
 
     public void getTime(){
-        if (timeCallBack!=null){
-             timeCallBack.getTime(top,mid,jug,bot,sup);
+        if (timeCallBack != null) {
+            Log.e("Test","timeCallBack != null");
+            timeCallBack.getTime(top, mid, jug, bot, sup);
+        }else {
+            Log.e("Test","timeCallBack == null");
         }
 
     }

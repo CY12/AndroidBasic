@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -19,6 +20,24 @@ import android.widget.TextView;
 import com.example.space.R;
 import com.example.space.SecrityActivity;
 
+/**
+ *  startService: onCreate() -> onStartCommand() ->onDestroy
+ *  多次启动 只会执行 onStartCommand
+ *  当activity 退出后 service 仍然在后台运行
+ *  当应用程序退出时 service 退出 不执行onDestroy
+ *
+ *  bindService: onCreate() -> onBind() -> onUnbind() -> onDestroy()
+ *  多次bind 只有第一次会执行 onCreate() -> onBind() ，其他bind 不会执行任何操作。第一次执行已经得到  IBinder实例 ，
+ *  并且该IBinder实例在所有的client之间是共享的，所以其他bind 时 直接获取上次已经获取到的IBinder实例，并将其参数传入ServiceConnection
+ *  且其中activity unbind 操作 service 不会中止，无生命周期变化，只当最后一个 unbind 才会执行 onUnbind() -> onDestroy()
+ *  当只有一个activity 退出时 service 中止
+ *
+ *  startService bindService 混合使用
+ *  要终止Service，需要unbindService和stopService都调用才行。与两者顺序无关。
+ *
+ *
+ *
+ */
 public class ServiceActivity extends AppCompatActivity {
 
     private TextView tvStart;
@@ -39,6 +58,8 @@ public class ServiceActivity extends AppCompatActivity {
     private static int jug1=0;
     private static int bot1=0;
     private static int sup1=0;
+    private TextView tvForeground;
+
 
 
 
@@ -50,6 +71,7 @@ public class ServiceActivity extends AppCompatActivity {
     private Handler mHandler=new Handler(Looper.getMainLooper()){
         @Override
         public void handleMessage(Message message){
+            Log.e("Test","ServiceActivity handleMessage top1"+top1+"  tvTop"+tvTop);
             if (top1 == 0) {
                 tvTop.setVisibility(View.GONE);
             } else {
@@ -87,6 +109,7 @@ public class ServiceActivity extends AppCompatActivity {
             timeService.setTimeCallBack(new TimeService.TimeCallBack() {
                 @Override
                 public void getTime(int top, int mid, int jug, int bot, int sup) {
+                    Log.e("Test","ServiceActivity getTime");
                     top1=top;
                     mid1=mid;
                     jug1=jug;
@@ -132,13 +155,24 @@ public class ServiceActivity extends AppCompatActivity {
         tvJug = (TextView) findViewById(R.id.tv_jug);
         tvBot = (TextView) findViewById(R.id.tv_bot);
         tvSup = (TextView) findViewById(R.id.tv_sup);
+        tvForeground = (TextView) findViewById(R.id.tv_foreground);
+
         Intent intent=new Intent(ServiceActivity.this,TimeService.class);
         //intent.putExtra("time","60");
         bindService(intent,serviceConnection, Context.BIND_AUTO_CREATE);
         Intent intent1=new Intent(ServiceActivity.this,TimeService.class);
         intent1.putExtra("time",60);
         startService(intent1);
+        tvForeground.setOnClickListener(v -> {
+            Intent intent2 = new Intent(this,ForegroundService.class);
+            if (Build.VERSION.SDK_INT >= 26){
+                startForegroundService(intent2);
+            }else {
+                startService(intent2);
+            }
 
+
+        });
 
 //        Intent intent3 = new Intent(ServiceActivity.this,BindService.class);
 //        startService(intent3);

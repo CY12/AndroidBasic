@@ -1,9 +1,7 @@
-package com.example.space.salary;
+package com.example.space.recycleview;
 
 import android.content.Context;
-import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 

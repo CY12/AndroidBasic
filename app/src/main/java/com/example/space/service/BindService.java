@@ -27,7 +27,7 @@ public class BindService extends Service {
     }
     public void onCreate(){
         super.onCreate();
-        Log.d("Test","Bind服务启动");
+        Log.d("Test","Bind服务启动 onCreate ");
         handler.post(timeRunnable);
     }
 

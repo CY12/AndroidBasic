@@ -1,4 +1,4 @@
-package com.example.space.salary;
+package com.example.space.recycleview;
 
 public class DetailParams {
     private String loginName;

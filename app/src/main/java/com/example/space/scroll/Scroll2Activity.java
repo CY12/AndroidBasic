@@ -20,13 +20,14 @@ import com.example.space.R;
  */
 public class Scroll2Activity extends AppCompatActivity {
     private float mx,my;
+    ValueAnimator valueAnimator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scroll2);
 
         final ImageView switcherView = (ImageView) this.findViewById(R.id.img);
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(0,1000);
+        valueAnimator = ValueAnimator.ofInt(0,1000);
 
         valueAnimator.setInterpolator(new LinearInterpolator());
         valueAnimator.setDuration(100000);
@@ -77,5 +78,10 @@ public class Scroll2Activity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        valueAnimator.end();
     }
 }

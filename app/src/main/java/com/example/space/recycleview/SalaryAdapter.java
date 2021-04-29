@@ -1,12 +1,8 @@
-package com.example.space.salary;
+package com.example.space.recycleview;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
