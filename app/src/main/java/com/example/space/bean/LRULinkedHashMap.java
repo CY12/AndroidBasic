@@ -5,6 +5,10 @@ import android.util.Log;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 一个 HashMap+双向链表 before after
+ *
+ */
 public class LRULinkedHashMap extends LinkedHashMap {
     private int maxSize;
     LRULinkedHashMap(int maxSize){

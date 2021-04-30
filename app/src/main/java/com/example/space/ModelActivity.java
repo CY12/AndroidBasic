@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.LinkedHashSet;
+
 public class ModelActivity extends AppCompatActivity {
     public final String TAG = "ModelActivity";
 

@@ -10,6 +10,15 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 /**
+ *
+ * Path是网址中的参数,例如:trades/{userId}
+ * Query是问号后面的参数,例如:trades/{userId}?token={token}
+ * QueryMap 相当于多个@Query
+ * Field用于Post请求,提交单个数据,然后要加@FormUrlEncoded
+ * Body相当于多个@Field,以对象的方式提交
+ * @Streaming:用于下载大文件
+ * @Header,@Headers、加请求头
+ *
  * Get 请求
  *  http:ip:port/api/message/detail/121241
  *  @GET("message/detail/{id}")
@@ -153,6 +162,7 @@ import retrofit2.http.POST;
  *     Call<List<Activity>> call = service.getActivityList(
  *                 "http://115.159.198.162:3001/api/ActivitySubjects", map);
  *
+ * https://www.jianshu.com/p/7687365aa946
  */
 public interface Http {
 

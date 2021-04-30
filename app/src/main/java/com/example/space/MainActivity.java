@@ -43,6 +43,7 @@ import com.example.space.utils.LoadingDialog;
 import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
 import com.example.space.wave.WaveProgressActivity;
+import com.example.space.websocket.WebSocketActivity;
 import com.example.space.webview.WebActivity;
 import com.google.gson.Gson;
 
@@ -149,7 +150,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
             startActivity(WebActivity.class);
         });
 
-
+        findViewById(R.id.tv_websocket).setOnClickListener(v -> startActivity(WebSocketActivity.class));
         findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
         findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));
         findViewById(R.id.tv_mvvm).setOnClickListener(v -> startActivity(MvvmActivity.class));

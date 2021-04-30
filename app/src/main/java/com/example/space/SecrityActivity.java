@@ -37,20 +37,6 @@ public class SecrityActivity extends AppCompatActivity {
         tvConfirm = (TextView) findViewById(R.id.tv_confirm);
         tvPwd = findViewById(R.id.tv_pwd);
 
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder().url("").build();
-        Call call = okHttpClient.newCall(request);
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-
-            }
-        });
 
         tvConfirm.setOnClickListener(v -> {
             if (etInput.getText().toString().length()<3){
