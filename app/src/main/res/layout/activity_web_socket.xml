@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".websocket.WebSocketActivity">
 
+
+
     <EditText
         android:id="@+id/et_send"
         android:layout_marginTop="100dp"

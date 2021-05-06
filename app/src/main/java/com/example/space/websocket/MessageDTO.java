@@ -1,25 +1,43 @@
 package com.example.space.websocket;
 
 public class MessageDTO {
-    private String fromUserName;
-    private String targetUserName;
+    private int type;// 0私聊 1群聊
+    private long fromId;
+    private String fromName;
+    private String toName;
     private String message;
-    private String messageType;
+    private long toId;
 
-    public String getFromUserName() {
-        return fromUserName;
+    public long getFromId() {
+        return fromId;
     }
 
-    public void setFromUserName(String fromUserName) {
-        this.fromUserName = fromUserName;
+    public void setFromId(long fromId) {
+        this.fromId = fromId;
     }
 
-    public String getTargetUserName() {
-        return targetUserName;
+    public String getFromName() {
+        return fromName;
     }
 
-    public void setTargetUserName(String targetUserName) {
-        this.targetUserName = targetUserName;
+    public void setFromName(String fromName) {
+        this.fromName = fromName;
+    }
+
+    public String getToName() {
+        return toName;
+    }
+
+    public void setToName(String toName) {
+        this.toName = toName;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getMessage() {
@@ -30,29 +48,11 @@ public class MessageDTO {
         this.message = message;
     }
 
-    public String getMessageType() {
-        return messageType;
+    public long getToId() {
+        return toId;
     }
 
-    public void setMessageType(String messageType) {
-        this.messageType = messageType;
-    }
-
-    public static enum Type {
-        TYPE_NEW("0000"), TYPE_TEXT("1000"), TYPE_BYTE("1001");
-        private String messageType;
-
-        Type(String messageType) {
-            this.messageType = messageType;
-        }
-
-        public String getMessageType() {
-            return messageType;
-        }
-
-        public void setMessageType(String messageType) {
-            this.messageType = messageType;
-        }
-
+    public void setToId(long toId) {
+        this.toId = toId;
     }
 }
