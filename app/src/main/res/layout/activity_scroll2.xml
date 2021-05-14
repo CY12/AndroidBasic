@@ -12,8 +12,18 @@
         android:layout_weight="1">
 
         <Button
+            android:id="@+id/btn"
             android:layout_width="100dp"
-            android:layout_height="100dp" />
+            android:layout_height="100dp"
+            android:text="可拖动的view"
+            />
+        <Button
+            android:id="@+id/btn_dialog"
+            android:layout_width="100dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="100dp"
+            android:text="BottomSheetDialog"
+            />
 
     </com.example.space.scroll.ScrollByLinearLayout>
 

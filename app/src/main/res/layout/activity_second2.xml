@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".life.ModelActivity">
+    tools:context=".life.SecondActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="FirstActivity"
+        android:text="SecondActivity"
         android:layout_marginTop="70dp"
         android:padding="@dimen/dp_10"
         android:textSize="25dp"
@@ -23,27 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"
-        android:text="startActivity singleTop"
-        android:textSize="25dp" />
-
-    <TextView
-        android:id="@+id/tv_start_standard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_start"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="50dp"
-        android:text="startActivity Main"
-        android:textSize="25dp" />
-
-    <TextView
-        android:id="@+id/tv_start_singleTask"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_start_standard"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="50dp"
-        android:text="startActivity second"
+        android:text="startActivity Third"
         android:textSize="25dp" />
 
 

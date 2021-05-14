@@ -1,4 +1,4 @@
-package com.example.space;
+package com.example.space.life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,9 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 
-import java.util.LinkedHashSet;
+import com.example.space.MainActivity;
+import com.example.space.R;
 
 public class ModelActivity extends AppCompatActivity {
     public final String TAG = "ModelActivity";
@@ -29,9 +29,13 @@ public class ModelActivity extends AppCompatActivity {
         findViewById(R.id.tv_start_standard).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ModelActivity.this,MainActivity.class);
+                Intent intent = new Intent(ModelActivity.this, MainActivity.class);
                 startActivity(intent);
             }
+        });
+        findViewById(R.id.tv_start_singleTask).setOnClickListener(v -> {
+            Intent intent = new Intent(ModelActivity.this, SecondActivity.class);
+            startActivity(intent);
         });
     }
 

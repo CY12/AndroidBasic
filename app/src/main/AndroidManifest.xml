@@ -25,11 +25,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".websocket.WebSocketActivity"></activity>
+        <activity android:name=".scroll.ScrollMapActivity"></activity>
+        <activity android:name=".life.ThirdActivity" />
+        <activity android:name=".life.SecondActivity" />
+        <activity android:name=".thread.AsyncActivity" />
+        <activity android:name=".websocket.WebSocketActivity" />
         <activity android:name=".recycleview.RecyclerViewActivity" />
         <activity android:name=".jni.JNIActivity" />
         <activity android:name=".fragment.FragmentActivity" />
-        <activity android:name=".leak.LeakActivity" />
+        <activity android:name=".thread.leak.LeakActivity" />
         <activity android:name=".window.WindowActivity" />
         <activity android:name=".animator.AnimatorActivity" />
         <activity android:name=".light.LightPhoneActivity" />
@@ -70,9 +74,7 @@
         <activity android:name=".scroll.Scroll2Activity" />
         <activity android:name=".onehand.OneHandActivity" />
         <activity android:name=".wave.WaveProgressActivity" />
-        <activity
-            android:name=".ModelActivity"
-            android:launchMode="singleTask" />
+        <activity android:name=".life.ModelActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".greendao.GreenDaoActivity" />
         <activity android:name=".service.ServiceActivity" />

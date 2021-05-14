@@ -442,6 +442,17 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_async"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="1100dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Async"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
         </RelativeLayout>
 

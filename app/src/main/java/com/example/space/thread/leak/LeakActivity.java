@@ -1,10 +1,8 @@
-package com.example.space.leak;
+package com.example.space.thread.leak;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -188,7 +186,7 @@ public class LeakActivity extends BaseActivity<LeakView,LeakPresenter> implement
     }
     /**
      *开启activity
-     *2021-03-30 15:04:44.438 19544-19544/com.example.space E/Test: com.example.space.leak.LeakActivity@b8fe3a6
+     *2021-03-30 15:04:44.438 19544-19544/com.example.space E/Test: com.example.space.thread.leak.LeakActivity@b8fe3a6
      * 2021-03-30 15:04:44.441 19544-19544/com.example.space D/Test: onCreate
      * 2021-03-30 15:04:44.446 19544-19544/com.example.space D/Test: onStart
      * 2021-03-30 15:04:44.447 19544-19544/com.example.space D/Test: onResume
@@ -206,7 +204,7 @@ public class LeakActivity extends BaseActivity<LeakView,LeakPresenter> implement
      * 2021-03-30 15:04:57.948 19544-19544/com.example.space E/Test: TESS == 请求网络数据成功 name == ww
      * 2021-03-30 15:04:57.949 19544-19544/com.example.space E/Test: mContext != nullcom.example.space.leak.LeakActivity@b8fe3a6
      * 开启activity
-     * 2021-03-30 15:05:20.285 19544-19544/com.example.space E/Test: com.example.space.leak.LeakActivity@c8e4923
+     * 2021-03-30 15:05:20.285 19544-19544/com.example.space E/Test: com.example.space.thread.leak.LeakActivity@c8e4923
      * 2021-03-30 15:05:20.286 19544-19544/com.example.space D/Test: onCreate
      * 2021-03-30 15:05:20.290 19544-19544/com.example.space D/Test: onStart
      * 2021-03-30 15:05:20.291 19544-19544/com.example.space D/Test: onResume

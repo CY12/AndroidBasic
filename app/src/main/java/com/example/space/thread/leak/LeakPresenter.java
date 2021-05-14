@@ -1,8 +1,7 @@
-package com.example.space.leak;
+package com.example.space.thread.leak;
 
 import android.app.Activity;
 import android.content.Context;
-import android.os.Looper;
 import android.util.Log;
 
 import com.example.space.base.BasePresenter;

@@ -37,6 +37,7 @@ public class ScrollByLinearLayout extends LinearLayout {
                 int dx = x - mLastX;
                 int dy = y - mLastY;
                 Log.e(TAG, "ScrollX = " + getScrollX() + "   ScrollY = " + getScrollY());
+                Log.e("Test","dy"+dy);
                 scrollBy(-dx, -dy);
                 break;
             case MotionEvent.ACTION_UP:

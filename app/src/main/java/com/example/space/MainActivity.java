@@ -26,14 +26,15 @@ import com.example.space.databinding.DataBindingActivity;
 import com.example.space.download.DownloadActivity;
 import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
-import com.example.space.leak.LeakActivity;
+import com.example.space.life.ModelActivity;
+import com.example.space.thread.AsyncActivity;
+import com.example.space.thread.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;
 import com.example.space.livedata.LiveDataActivity;
 import com.example.space.mvvm.MvvmActivity;
 import com.example.space.picture.AutoPictureActivity;
 import com.example.space.recycleview.RecyclerViewActivity;
 import com.example.space.reflex.ReflexActivity;
-import com.example.space.recycleview.SalaryActivity;
 import com.example.space.scroll.Scroll2Activity;
 import com.example.space.service.ServiceActivity;
 import com.example.space.singleClick.SingleActivity;
@@ -171,6 +172,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
         findViewById(R.id.tv_animator).setOnClickListener(v -> {
             startActivity(AnimatorActivity.class);
+        });
+        findViewById(R.id.tv_async).setOnClickListener(v -> {
+            startActivity(AsyncActivity.class);
         });
         findViewById(R.id.tv_dialog).setOnClickListener((View.OnClickListener) v -> {
             DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);

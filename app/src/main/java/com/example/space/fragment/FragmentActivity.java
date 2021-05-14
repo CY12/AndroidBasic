@@ -13,6 +13,12 @@ import android.widget.TextView;
 import com.example.space.R;
 import com.example.space.base.BaseLifeActivity;
 
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
 public class FragmentActivity extends BaseLifeActivity {
     private FrameLayout flFragment;
     private TextView tvStart;
@@ -39,7 +45,6 @@ public class FragmentActivity extends BaseLifeActivity {
         tvHide = (TextView) findViewById(R.id.tv_hide);
         tvShow = (TextView) findViewById(R.id.tv_show);
         tvSecond = (TextView) findViewById(R.id.tv_second);
-
 
 
         firstFragment = new FirstFragment();
