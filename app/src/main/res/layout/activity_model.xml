@@ -46,5 +46,16 @@
         android:text="startActivity second"
         android:textSize="25dp" />
 
+    <TextView
+        android:id="@+id/tv_start_singleInstance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_start_singleTask"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:text="startActivity singleInstance"
+        android:textSize="25dp" />
+
+
 
 </RelativeLayout>

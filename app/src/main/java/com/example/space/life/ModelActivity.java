@@ -6,12 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.space.MainActivity;
 import com.example.space.R;
 
 public class ModelActivity extends AppCompatActivity {
     public final String TAG = "ModelActivity";
+    private TextView tvStartSingleInstance;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,11 @@ public class ModelActivity extends AppCompatActivity {
         });
         findViewById(R.id.tv_start_singleTask).setOnClickListener(v -> {
             Intent intent = new Intent(ModelActivity.this, SecondActivity.class);
+            startActivity(intent);
+        });
+        tvStartSingleInstance = (TextView) findViewById(R.id.tv_start_singleInstance);
+        tvStartSingleInstance.setOnClickListener(v -> {
+            Intent intent = new Intent(ModelActivity.this,SingleInstanceActivity.class);
             startActivity(intent);
         });
     }
