@@ -20,6 +20,8 @@ import com.example.space.MainActivity;
 import com.example.space.R;
 import com.github.chrisbanes.photoview.PhotoView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.net.HttpURLConnection;
 import java.util.AbstractList;
 import java.util.ArrayList;
@@ -68,6 +70,7 @@ public class TempActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
         ivTemp =  findViewById(R.id.iv_temp);
+        // bug 修复
         //http://121.196.167.157:9090/image/1611718168025.jpg
 //        ivTemp.setImageResource(R.mipmap.big);
 //        Glide.with(this).load(R.mipmap.big).into(ivTemp);
@@ -129,4 +132,5 @@ public class TempActivity extends AppCompatActivity {
 
         }
     }
+
 }
