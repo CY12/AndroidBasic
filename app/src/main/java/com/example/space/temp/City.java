@@ -30,4 +30,5 @@ public class City {
     public void setCounties(County[] counties) {
         this.counties = counties;
     }
+    // 如何想合并某个分支的提交 可以在remote查看该分支提交的记录 可以ctrl多选 然后右键cherry—pick 有冲突合并就可以，合并好后作为一次新的commit提交
 }
