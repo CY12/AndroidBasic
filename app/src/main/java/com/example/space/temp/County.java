@@ -30,4 +30,5 @@ public class County {
     public void setCounty(String county) {
         this.county = county;
     }
+    //修复bug3
 }
