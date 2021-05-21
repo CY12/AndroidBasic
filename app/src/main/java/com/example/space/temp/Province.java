@@ -20,4 +20,5 @@ public class Province {
     public void setCities(City[] cities) {
         this.cities = cities;
     }
+    // 修复bug2
 }
