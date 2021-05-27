@@ -1,6 +1,7 @@
 package com.example.space.thread.leak;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -9,7 +10,9 @@ import android.widget.Toast;
 
 import com.example.space.R;
 import com.example.space.base.BaseActivity;
+import com.example.space.databinding.Student;
 
+import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 
 /**
@@ -94,6 +97,7 @@ public class LeakActivity extends BaseActivity<LeakView,LeakPresenter> implement
     private TextView tvChange;
 
     WeakReference<String> str = new WeakReference<String>(new String("hello"));
+//    WeakReference<Activity> weakReference = new WeakReference<Activity>(new LeakActivity()); ()里放入引用的对象
 
 
     @Override
@@ -127,6 +131,32 @@ public class LeakActivity extends BaseActivity<LeakView,LeakPresenter> implement
             Log.e("Test","setOnClickListener");
             getPresenter().toRequestData(22);
         });
+        testReference();
+    }
+
+    /**
+     * 引用队列（ReferenceQueue）浅析
+     * https://blog.csdn.net/lverniu777fubiwei/article/details/53876211
+     */
+    private void testReference() {
+
+        Log.e("Test","测试弱引用");
+        Student student = new Student();
+        ReferenceQueue<Student> studentReferenceQueue = new ReferenceQueue<Student>();//引用队列
+        WeakReference<Student> studentWeakReference = new WeakReference<Student>(student, studentReferenceQueue);
+        Log.e("Test","SavePoint 被作为一个弱引用来创建" + studentWeakReference);
+        Runtime.getRuntime().gc();
+        Log.e("Test","在引用队列中存在引用型对象吗 ? " + (studentReferenceQueue.poll() != null));
+        student = null; // 唯一的强引用被删除掉，在堆中的对象现在只具有弱可达性
+        Log.e("Test","现在调用GC");
+        Runtime.getRuntime().gc(); // 对象会在这里被回收掉，finalize方法会被调用
+        try {
+            Log.e("Test","在引用队列中有任何弱引用吗? " + (studentReferenceQueue.remove() != null));
+        }catch (Exception e){
+
+        }
+        Log.e("Test","弱引用型对象还引用着堆中的对象吗?" + (studentWeakReference.get() != null));
+        Log.e("Test","弱引用型对象被添加到引用队列中了吗?" + (studentWeakReference.isEnqueued()));
 
     }
 

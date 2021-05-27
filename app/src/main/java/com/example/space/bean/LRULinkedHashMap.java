@@ -6,7 +6,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * 一个 HashMap+双向链表 before after
+ * LinkedHashMap 一个 HashMap+双向链表
+ * 这里有五个属性别搞混淆的，对于 Node  next 属性，是用来维护整个集合中 Entry 的顺序。对于 Entry before，Entry after ，
+ * 以及 Entry head，Entry tail，这四个属性都是用来维护保证集合顺序的链表，
+ * 其中前两个before和after表示某个节点的上一个节点和下一个节点，这是一个双向链表。
+ * 后两个属性 head 和 tail 分别表示这个链表的头节点和尾节点。
  *
  */
 public class LRULinkedHashMap extends LinkedHashMap {

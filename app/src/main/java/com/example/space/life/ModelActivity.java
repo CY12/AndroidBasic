@@ -69,7 +69,7 @@ public class ModelActivity extends AppCompatActivity {
      *
      *
      * startActivity流程： startActivity -> AMS 的startActivity -> 判断是否要开启新进程
-     * (无 zygote 请求fork进程 创建完子进程（loop完成）会 向AMS请求 attachApplication 完成后 AMS 向子进程发送 scheduleLaunchActivity 子进程后到消息会向主线程发送LAUNCH_ACTIVITY消息 然后handle 处理消息通过反蛇创建activity 回调Activity.onCreate()等方法  )
+     * (否 zygote 请求fork进程 创建完子进程（loop完成）是 向AMS请求 attachApplication 完成后 AMS 向子进程发送 scheduleLaunchActivity 子进程后到消息会向主线程发送LAUNCH_ACTIVITY消息 然后handle 处理消息通过反蛇创建activity 回调Activity.onCreate()等方法  )
      * 当前进程 pause完当前栈顶activity后通知AMS可以开始启动新activity了，准备就绪后AMS会通过ApplicationThread的远程接口ApplicationThreadProxy来调用scheduleLaunchActivity通知新进程开始真正启动activity的工作了，activity的onCreate和onResume函数都是在ActivityThread的handleLaunchActivity中完成的；
      *
      * https://blog.csdn.net/xgq330409675/article/details/78938926

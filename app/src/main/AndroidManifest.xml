@@ -25,10 +25,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".life.SimpleActivity"></activity>
-        <activity android:name=".life.SingleInstanceActivity"
-            android:launchMode="singleInstance"
-            />
+        <activity android:name=".thinking.chain.ChainActivity"></activity>
+        <activity android:name=".life.SimpleActivity" />
+        <activity
+            android:name=".life.SingleInstanceActivity"
+            android:launchMode="singleInstance" />
         <activity android:name=".scroll.ScrollMapActivity" />
         <activity android:name=".life.ThirdActivity" />
         <activity android:name=".life.SecondActivity" />
