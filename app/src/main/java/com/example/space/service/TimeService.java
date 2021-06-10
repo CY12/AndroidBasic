@@ -106,4 +106,5 @@ public class TimeService extends Service {
     public void setTimeCallBack(TimeCallBack timeCallBack){
         this.timeCallBack=timeCallBack;
     }
+
 }

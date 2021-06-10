@@ -1,4 +1,4 @@
-package com.example.space.wave;
+package com.example.space.view.wave;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.example.space.R;
-
-import java.text.DecimalFormat;
 
 public class WaveProgressActivity extends AppCompatActivity {
     WaveProgressView waveProgressView;

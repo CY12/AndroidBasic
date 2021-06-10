@@ -454,6 +454,18 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_dispatch"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="1200dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="Dispatch"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+
+
         </RelativeLayout>
 
     </ScrollView>

@@ -1,4 +1,4 @@
-package com.example.space.wave;
+package com.example.space.view.wave;
 
 
 import android.content.Context;

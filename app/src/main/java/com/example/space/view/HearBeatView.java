@@ -47,17 +47,17 @@ public class HearBeatView extends RelativeLayout {
         initAttr(context,attrs);
     }
 
-    private void initAttr(Context context, AttributeSet attrs){
-        Log.d("Test","initAttr");
-        if (attrs!=null){
-            TypedArray typedArray=context.obtainStyledAttributes(attrs, R.styleable.HearBeatView);
-            r=(int)typedArray.getDimension(R.styleable.HearBeatView_radius,dp2px(context,5));
-            time=typedArray.getInteger(R.styleable.HearBeatView_time,1000);
-            color=typedArray.getColor(R.styleable.HearBeatView_color, Color.GRAY);
+    private void initAttr(Context context, AttributeSet attrs) {
+        Log.d("Test", "initAttr");
+        if (attrs != null) {
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.HearBeatView);
+            r = (int) typedArray.getDimension(R.styleable.HearBeatView_radius, dp2px(context, 5));
+            time = typedArray.getInteger(R.styleable.HearBeatView_time, 1000);
+            color = typedArray.getColor(R.styleable.HearBeatView_color, Color.GRAY);
             typedArray.recycle();
 
-        }else {
-            Log.d("Test","initAttr  attr=null");
+        } else {
+            Log.d("Test", "initAttr  attr=null");
         }
         init();
 

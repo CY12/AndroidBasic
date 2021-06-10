@@ -23,6 +23,7 @@ import com.example.space.broadcast.BroadcastActivity;
 import com.example.space.databinding.Student;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
+import com.example.space.dispatch.DispatchActivity;
 import com.example.space.download.DownloadActivity;
 import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
@@ -43,7 +44,7 @@ import com.example.space.thinking.observer.ObserverActivity;
 import com.example.space.utils.LoadingDialog;
 import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
-import com.example.space.wave.WaveProgressActivity;
+import com.example.space.view.wave.WaveProgressActivity;
 import com.example.space.websocket.WebSocketActivity;
 import com.example.space.webview.WebActivity;
 import com.google.gson.Gson;
@@ -159,7 +160,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);
         });
-
+        findViewById(R.id.tv_dispatch).setOnClickListener(v -> {startActivity(DispatchActivity.class);});
         findViewById(R.id.tv_broadcast).setOnClickListener(v -> {
             startActivity(BroadcastActivity.class);
         });

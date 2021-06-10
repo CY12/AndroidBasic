@@ -33,9 +33,37 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/layout_layer"
+        android:background="@drawable/layout_shadow"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="20dp"
         />
 
+    <com.example.space.view.ShadowView
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:containerCornerRadius="5dp"
+        app:containerDeltaLength="5dp"
+        app:containerShadowColor="#26D6D6D6"
+        app:containerShadowRadius="5dp">
+        <View
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/shape_5"
+            />
+
+    </com.example.space.view.ShadowView>
+
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="200dp"
+        />
 </RelativeLayout>

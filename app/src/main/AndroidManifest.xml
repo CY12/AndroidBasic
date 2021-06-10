@@ -25,7 +25,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".thinking.chain.ChainActivity"></activity>
+        <activity android:name=".dispatch.DispatchActivity"></activity>
+        <activity android:name=".thinking.chain.ChainActivity" />
         <activity android:name=".life.SimpleActivity" />
         <activity
             android:name=".life.SingleInstanceActivity"
@@ -78,7 +79,7 @@
         <activity android:name=".singleClick.SingleActivity" />
         <activity android:name=".scroll.Scroll2Activity" />
         <activity android:name=".onehand.OneHandActivity" />
-        <activity android:name=".wave.WaveProgressActivity" />
+        <activity android:name=".view.wave.WaveProgressActivity" />
         <activity android:name=".life.ModelActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".greendao.GreenDaoActivity" />

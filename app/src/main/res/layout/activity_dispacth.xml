@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".dispatch.DispatchActivity">
+
+    <com.example.space.view.DisViewGroup
+        android:id="@+id/disViewGroup"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_centerVertical="true"
+        android:background="#00BCD4"
+        >
+
+        <com.example.space.view.DisView
+            android:id="@+id/disView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#E91E63"
+            android:layout_centerInParent="true"
+            />
+
+    </com.example.space.view.DisViewGroup>
+
+</RelativeLayout>

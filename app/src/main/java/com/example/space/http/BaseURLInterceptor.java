@@ -39,6 +39,9 @@ public class BaseURLInterceptor implements Interceptor {
 
         // 从request中获取headers，通过给定的键url_name
         List<String> headerValues = request.headers("url_name");
+        //@Headers("url_name:authCenter")
+        //@POST("list")
+        //Call<Salary> getSalary(@Body RequestBody body);
         if (headerValues != null && headerValues.size() > 0) {
             // 如果有这个header，先将配置的header删除，因此header仅用作app和okhttp之间使用
             builder.removeHeader("url_name");
