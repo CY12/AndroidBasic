@@ -28,6 +28,7 @@ import com.example.space.download.DownloadActivity;
 import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
 import com.example.space.life.ModelActivity;
+import com.example.space.onehand.OneHandActivity;
 import com.example.space.thread.AsyncActivity;
 import com.example.space.thread.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;
@@ -306,7 +307,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 isPlaying = !isPlaying;
                 break;
             case R.id.tv_camera:
-                startActivity(CameraActivity.class);
+                startActivity(OneHandActivity.class);
                 break;
             case R.id.tv_camera2:
                 getSupportFragmentManager()

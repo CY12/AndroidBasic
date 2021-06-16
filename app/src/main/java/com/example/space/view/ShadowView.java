@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -53,6 +54,7 @@ public class ShadowView extends ViewGroup {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
+        Log.e("Test","dispatchDraw");
         if (drawShadow) {
             if (getLayerType() != LAYER_TYPE_SOFTWARE) {
                 setLayerType(LAYER_TYPE_SOFTWARE, null);
@@ -81,6 +83,7 @@ public class ShadowView extends ViewGroup {
         super.dispatchDraw(canvas);
     }
 
+
     public void setDrawShadow(boolean drawShadow){
         if (this.drawShadow == drawShadow){
             return;
@@ -92,6 +95,7 @@ public class ShadowView extends ViewGroup {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.e("Test","onMeasure");
         if (getChildCount() != 1) {
             throw new IllegalStateException("子View只能有一个");
         }
@@ -199,11 +203,18 @@ public class ShadowView extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        Log.e("Test","onLayout");
         View child = getChildAt(0);
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
         int childMeasureWidth = child.getMeasuredWidth();
         int childMeasureHeight = child.getMeasuredHeight();
         child.layout((measuredWidth - childMeasureWidth) / 2, (measuredHeight - childMeasureHeight) / 2, (measuredWidth + childMeasureWidth) / 2, (measuredHeight + childMeasureHeight) / 2);
+    }
+
+    @Override
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        Log.e("Test", "onDraw");
     }
 }
