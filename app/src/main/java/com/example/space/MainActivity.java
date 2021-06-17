@@ -42,6 +42,7 @@ import com.example.space.service.ServiceActivity;
 import com.example.space.singleClick.SingleActivity;
 import com.example.space.temp.TempActivity;
 import com.example.space.thinking.observer.ObserverActivity;
+import com.example.space.transition.TransitionActivity;
 import com.example.space.utils.LoadingDialog;
 import com.example.space.utils.ProgressUtils;
 import com.example.space.view.CameraFragment;
@@ -152,7 +153,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_web).setOnClickListener(v -> {
             startActivity(WebActivity.class);
         });
-
+        findViewById(R.id.tv_transition).setOnClickListener(v -> {
+            startActivity(TransitionActivity.class);
+        });
         findViewById(R.id.tv_websocket).setOnClickListener(v -> startActivity(WebSocketActivity.class));
         findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
         findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));

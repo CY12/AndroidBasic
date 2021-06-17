@@ -26,7 +26,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvvm.UserActivity"></activity>
+        <activity android:name=".transition.AimActivity"></activity>
+        <activity android:name=".transition.TransitionActivity" />
+        <activity android:name=".mvvm.UserActivity" />
         <activity android:name=".dispatch.DispatchActivity" />
         <activity android:name=".thinking.chain.ChainActivity" />
         <activity android:name=".life.SimpleActivity" />

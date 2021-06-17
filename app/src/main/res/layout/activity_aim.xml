@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#94A580"
+    tools:context=".transition.AimActivity">
+    <ImageView
+        android:id="@+id/iv_head"
+        android:transitionName="iv_head"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_tou"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        />
+    <TextView
+        android:layout_gravity="bottom"
+        android:id="@+id/tv_name"
+        android:transitionName="tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="昵称"
+        android:textColor="#3A3A3A"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/iv_head"
+        />
+
+    <TextView
+        android:id="@+id/tv_back"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="退出"
+        android:textColor="#333333"
+        android:textSize="24dp"
+        />
+</RelativeLayout>
