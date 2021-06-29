@@ -58,9 +58,12 @@ public class DragDialog extends Dialog {
             }
         });
     }
+//    public static final int WRAP_CONTENT = -2;
+//    public static final int MATCH_PARENT = -1;
     private void setHeight(View view,int height){
         RelativeLayout.LayoutParams rlParams =(RelativeLayout.LayoutParams) view.getLayoutParams();//外层是
-        rlParams.height =rlParams.height + height;
+        rlParams.height = view.getHeight() + height;
+//        rlParams.height =rlParams.height + height; rlParams.height 时当是wrap 和 match 是负数，得不到view的高度 所以使用view.getHeight()
         view.setLayoutParams(rlParams);
     }
 }

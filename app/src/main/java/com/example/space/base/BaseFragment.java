@@ -77,6 +77,11 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
+    public void onHiddenChanged(boolean hidden) {
+        Log.e(TAG, getTAG()+" hidden"+hidden);
+    }
+
+    @Override
     public void onAttach(Context context){
         super.onAttach(context);
         Log.e(TAG, getTAG()+" onAttach");

@@ -13,12 +13,33 @@ import android.widget.TextView;
 import com.example.space.R;
 import com.example.space.base.BaseLifeActivity;
 
+import java.lang.reflect.Constructor;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * 启动
+ * 2021-06-18 16:09:27.628 19719-19719/com.example.space E/Test: FActivityonCreate
+ * 2021-06-18 16:09:27.653 19719-19719/com.example.space E/Test: FirstFragment onAttach
+ * 2021-06-18 16:09:27.654 19719-19719/com.example.space E/Test: FirstFragment onCreate
+ * 2021-06-18 16:09:27.655 19719-19719/com.example.space E/Test: FirstFragment onCreateView
+ * 2021-06-18 16:09:27.659 19719-19719/com.example.space E/Test: FirstFragment onViewCreated
+ * 2021-06-18 16:09:27.659 19719-19719/com.example.space E/Test: FirstFragment onActivityCreated
+ * 2021-06-18 16:09:27.659 19719-19719/com.example.space E/Test: FirstFragment onStart
+ * 2021-06-18 16:09:27.659 19719-19719/com.example.space E/Test: FActivityonStart
+ * 2021-06-18 16:09:27.661 19719-19719/com.example.space E/Test: FActivityonResume
+ * 2021-06-18 16:09:27.661 19719-19719/com.example.space E/Test: FirstFragment onResume
+ * 退出
+ * 2021-06-18 16:09:27.661 19719-19719/com.example.space E/Test: FirstFragment onResume
+ * 2021-06-18 16:09:47.377 19719-19719/com.example.space E/Test: FirstFragment onPause
+ * 2021-06-18 16:09:47.378 19719-19719/com.example.space E/Test: FirstFragment onStop
+ * 2021-06-18 16:09:47.379 19719-19719/com.example.space E/Test: FirstFragment onDestroyView
+ * 2021-06-18 16:09:47.392 19719-19719/com.example.space E/Test: FirstFragment onDestroy
+ * 2021-06-18 16:09:47.392 19719-19719/com.example.space E/Test: FirstFragment onDetach
+ */
 public class FragmentActivity extends BaseLifeActivity {
     private FrameLayout flFragment;
     private TextView tvStart;
@@ -27,7 +48,6 @@ public class FragmentActivity extends BaseLifeActivity {
     private TextView tvShow;
     private FirstFragment firstFragment;
     private TextView tvSecond;
-
 
 
 
@@ -48,6 +68,10 @@ public class FragmentActivity extends BaseLifeActivity {
 
 
         firstFragment = new FirstFragment();
+        FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction1.replace(R.id.fl_fragment,firstFragment,"FirstFragment");
+        fragmentTransaction1.addToBackStack("FirstFragment");
+        fragmentTransaction1.commit();
         tvStart.setOnClickListener(v -> {
 
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -76,7 +100,11 @@ public class FragmentActivity extends BaseLifeActivity {
             fragmentTransaction.addToBackStack("SecondFragment");
             fragmentTransaction.commit();
         });
+
+
     }
+
+
     public void startToFragment(int container, Fragment newFragment) {
 
         FragmentManager manager = getSupportFragmentManager();

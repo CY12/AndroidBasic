@@ -38,7 +38,7 @@ public class SecondFragment extends BaseFragment {
 
         tvStart.setOnClickListener(v -> {
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fl_fragment,new ThirdFragment());
+            transaction.replace(R.id.fl_fragment,new ThirdFragment(),"ThirdFragment");
             transaction.addToBackStack("ThirdFragment");
             transaction.commit();
         });

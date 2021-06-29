@@ -29,6 +29,8 @@ import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
 import com.example.space.life.ModelActivity;
 import com.example.space.onehand.OneHandActivity;
+import com.example.space.softinput.SoftInputActivity;
+import com.example.space.softinput.SoftInputActivity2;
 import com.example.space.thread.AsyncActivity;
 import com.example.space.thread.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;

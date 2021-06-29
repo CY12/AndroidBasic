@@ -1,9 +1,12 @@
 package com.example.space.fragment;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.space.R;
 import com.example.space.base.BaseFragment;
@@ -32,6 +35,21 @@ public class ThirdFragment extends BaseFragment {
 
         tvButton.setOnClickListener(v -> {
             getFragmentManager().popBackStack("ThirdFragment",POP_BACK_STACK_INCLUSIVE);
+
+        });
+        view.findViewById(R.id.tv_findFragment).setOnClickListener(v -> {
+
+            FragmentManager manager = getActivity().getSupportFragmentManager();
+            Fragment fragment = manager.findFragmentByTag("ThirdFragment");
+
+            if (fragment != null){
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.remove(fragment);
+                transaction.commit();
+                Log.e("Test","remove Conversation ");
+            }else {
+                Log.e("Test","fragment == null ");
+            }
 
         });
     }

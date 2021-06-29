@@ -6,6 +6,8 @@ import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.space.MainActivity;
+
 public abstract class BaseLifeActivity extends AppCompatActivity {
     static String TAG = "Test";
 
@@ -13,47 +15,60 @@ public abstract class BaseLifeActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle bundle){
         super.onCreate(bundle);
-        Log.e(TAG,getTAG()+"onCreate");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onCreate");
     }
 
     @Override
     public void onStart(){
         super.onStart();
-        Log.e(TAG,getTAG()+"onStart");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onStart");
     }
 
     @Override
     public void onRestart(){
         super.onRestart();
-        Log.e(TAG,getTAG()+"onRestart");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onRestart");
     }
 
     @Override
     public void onResume(){
         super.onResume();
-        Log.e(TAG,getTAG()+"onResume");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onResume");
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
-        Log.e(TAG,getTAG()+"onDestroy");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onDestroy");
     }
 
     @Override
     public void onPause(){
         super.onPause();
-        Log.e(TAG,getTAG()+"onPause");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onPause");
     }
     @Override
     public void onStop(){
         super.onStop();
-        Log.e(TAG,getTAG()+"onStop");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onStop");
     }
 
     @Override
     public void onNewIntent(Intent intent){
         super.onNewIntent(intent);
-        Log.e(TAG,getTAG()+"onNewIntent");
+        if (getTAG() != null)
+            Log.e(TAG,getTAG()+"onNewIntent");
+    }
+
+    public void startActivity(Class<?> cls) {
+        Log.e("Test","content:"+this.toString());
+        startActivity(new Intent(this, cls));
     }
 }

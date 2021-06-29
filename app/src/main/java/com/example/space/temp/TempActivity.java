@@ -18,6 +18,8 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.example.space.MainActivity;
 import com.example.space.R;
+import com.example.space.bean.Child;
+import com.example.space.bean.Parent;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import org.greenrobot.eventbus.EventBus;

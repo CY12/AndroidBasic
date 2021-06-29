@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#1A808080"
     android:fitsSystemWindows="true"
-    tools:context=".SoftInputActivity">
+    tools:context=".softinput.SoftInputActivity2">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="500dp"

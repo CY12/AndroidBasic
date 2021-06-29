@@ -26,7 +26,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".transition.AimActivity"></activity>
+        <activity
+            android:name=".softinput.SoftInputActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            >
+        </activity>
+        <activity android:name=".transition.AimActivity" />
         <activity android:name=".transition.TransitionActivity" />
         <activity android:name=".mvvm.UserActivity" />
         <activity android:name=".dispatch.DispatchActivity" />
@@ -68,7 +73,7 @@
         <activity android:name=".service.ServiceType2Activity" />
         <activity android:name=".service.ServiceTypeActivity" />
         <activity
-            android:name=".SoftInputActivity"
+            android:name=".softinput.SoftInputActivity2"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".SecrityActivity" />
         <activity android:name=".webview.WebActivity" />

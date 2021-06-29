@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,6 +21,8 @@ public class AddViewActivity extends AppCompatActivity {
     private TextView tvAddChild;
     private TextView tvAddParams;
     private RelativeLayout relativeLayout;
+    private TextView tvAdd;
+
 
 
     @Override
@@ -33,7 +37,19 @@ public class AddViewActivity extends AppCompatActivity {
         tvAddParams = (TextView) findViewById(R.id.tv_add_params);
         llLinear.setOrientation(LinearLayout.VERTICAL);
 
-
+        tvAdd = (TextView) findViewById(R.id.tv_add);
+        View view = LayoutInflater.from(this).inflate(R.layout.layout_ad_view,null);
+        RelativeLayout.LayoutParams relLayoutParams=new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
+        addContentView(view,relLayoutParams);
+        tvAdd.setOnClickListener(v -> {
+            addContentView(view,relLayoutParams);
+        });
+        TextView textView3 = view.findViewById(R.id.tv_close);
+        textView3.setOnClickListener(v -> {
+            ViewGroup contentParent = getWindow().getDecorView().findViewById(android.R.id.content);
+            contentParent.removeView(view);
+        });
         // 获取当前的时间并转换为时间戳格式, 并设置给TextView
 
         tvAddChild.setOnClickListener(new View.OnClickListener() {

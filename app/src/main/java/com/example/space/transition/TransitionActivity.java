@@ -6,9 +6,11 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.transition.Fade;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.util.Pair;
+import android.view.Gravity;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -31,7 +33,7 @@ public class TransitionActivity extends AppCompatActivity {
         tvShare = (TextView) findViewById(R.id.tv_share);
         ivHead = (ImageView) findViewById(R.id.iv_head);
         tvName = (TextView) findViewById(R.id.tv_name);
-
+        getWindow().setExitTransition(new Slide(Gravity.LEFT));
         findViewById(R.id.tv_simple).setOnClickListener(v -> {
             startActivity(new Intent(this,AimActivity.class));
         });
