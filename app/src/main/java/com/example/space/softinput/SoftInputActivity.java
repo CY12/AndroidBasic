@@ -26,9 +26,10 @@ public class SoftInputActivity extends BaseLifeActivity {
         etSend = (EditText) findViewById(R.id.et_send);
 
         findViewById(R.id.tv_confirm).setOnClickListener(v -> {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)etSend.getLayoutParams();
-            Log.e("Test","layoutParams.bottomMargin"+layoutParams.bottomMargin);
-//            startActivity(SoftInputActivity2.class);
+//            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams)etSend.getLayoutParams();
+//            Log.e("Test","layoutParams.bottomMargin"+layoutParams.bottomMargin);
+
+            startActivity(SoftInputActivity3.class);
         });
     }
 }

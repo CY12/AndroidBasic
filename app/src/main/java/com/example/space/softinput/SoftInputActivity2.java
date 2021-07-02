@@ -49,7 +49,6 @@ public class SoftInputActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_soft_input);
         dragView(findViewById(R.id.rv_dialog));
         LinearInterpolator linearInterpolator = new LinearInterpolator();
-
     }
     private int mLastY;
     private void dragView(View view){

@@ -2,9 +2,15 @@ package com.example.space;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -50,7 +56,6 @@ public class SecrityActivity extends AppCompatActivity {
             Log.d("Test","a"+a+" b"+b+" c"+c);
             String pwd = getPwd(a,b,c);
             tvPwd.setText(pwd+"");
-
 
         });
     }
