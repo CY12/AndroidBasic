@@ -27,12 +27,20 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SlideViewHol
     private int holderSize = 0,bindSize = 0;
 
     public SlideAdapter(Context context) {
-        for (int i=1;i<=40;i++){
+        for (int i=1;i<=3;i++){
             mList.add("消息"+i);
         }
         mContext = context;
     }
 
+    public void addItem(){
+        mList.add("消息"+getItemCount()+1);
+        notifyDataSetChanged();
+    }
+    public void removeItem(){
+        mList.remove(mList.size()-1);
+        notifyDataSetChanged();
+    }
 
     @Override
     public SlideAdapter.SlideViewHolder onCreateViewHolder( ViewGroup viewGroup, int i) {
