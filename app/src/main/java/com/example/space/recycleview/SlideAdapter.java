@@ -35,7 +35,7 @@ public class SlideAdapter extends RecyclerView.Adapter<SlideAdapter.SlideViewHol
 
     public void addItem(){
         mList.add("消息"+getItemCount()+1);
-        notifyDataSetChanged();
+        notifyItemInserted(getItemCount()-1);
     }
     public void removeItem(){
         mList.remove(mList.size()-1);

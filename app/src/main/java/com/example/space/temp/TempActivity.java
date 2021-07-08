@@ -73,6 +73,7 @@ public class TempActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
         ivTemp =  findViewById(R.id.iv_temp);
+        int[] h;
         // bug 修复
         //http://121.196.167.157:9090/image/1611718168025.jpg
 //        ivTemp.setImageResource(R.mipmap.big);
