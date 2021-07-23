@@ -5,6 +5,7 @@
     android:layout_height="100dp"
     android:paddingLeft="10dp"
     android:gravity="center_vertical"
+    android:clickable="true"
     >
     <TextView
         android:id="@+id/tv_name"

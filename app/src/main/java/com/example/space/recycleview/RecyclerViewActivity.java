@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.space.R;
 
@@ -85,7 +87,6 @@ public class RecyclerViewActivity extends AppCompatActivity implements MyRecycle
         myRecyclerViewAdapter = new MyRecyclerViewAdapter(this, mDatas, this);
         mRecyclerView.setAdapter(myRecyclerViewAdapter);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayout.VERTICAL));
-
     }
 
     private void initData() {
@@ -201,6 +202,11 @@ public class RecyclerViewActivity extends AppCompatActivity implements MyRecycle
 
     @Override
     public void onUserClick(int position) {
+        Toast.makeText(this,"点击的是"+position,Toast.LENGTH_SHORT).show();
+        if (position % 2 == 0){
+            Intent intent = new Intent(RecyclerViewActivity.this,SalaryActivity.class);
+            startActivity(intent);
+        }
 //        Toast.makeText(this,"点击的是"+mDatas.get(position).getUserName(),Toast.LENGTH_SHORT).show();
 //        mDatas.remove(position);
 //        myRecyclerViewAdapter.notifyItemRemoved(position);

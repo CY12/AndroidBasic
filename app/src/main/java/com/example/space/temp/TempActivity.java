@@ -20,9 +20,17 @@ import com.example.space.MainActivity;
 import com.example.space.R;
 import com.example.space.bean.Child;
 import com.example.space.bean.Parent;
+import com.example.space.bean.Student;
+import com.example.space.recycleview.Salary;
+import com.example.space.utils.JsonUtils;
+import com.example.space.view.VerticalLinearLayout;
 import com.github.chrisbanes.photoview.PhotoView;
+import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.net.HttpURLConnection;
 import java.util.AbstractList;
@@ -49,6 +57,8 @@ public class TempActivity extends AppCompatActivity {
 
     private PhotoView ivTemp;
 
+    private VerticalLinearLayout llVertical;
+
 
     Handler handler = new Handler(){
         @Override
@@ -73,17 +83,23 @@ public class TempActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
         ivTemp =  findViewById(R.id.iv_temp);
-        int[] h;
-        // bug 修复
-        //http://121.196.167.157:9090/image/1611718168025.jpg
-//        ivTemp.setImageResource(R.mipmap.big);
-//        Glide.with(this).load(R.mipmap.big).into(ivTemp);
-        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
+        llVertical = (VerticalLinearLayout) findViewById(R.id.ll_vertical);
+        try {
+            JSONObject jsonObject = new JSONObject("");
+            JSONArray jsonArray = new JSONArray("");
+            Gson gson = new Gson();
+            String s = "sda";
+            Salary salary = gson.fromJson(s,Salary.class);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+//        Glide.with(this).load("http://121.196.167.157:9090/image/1611718168025.jpg").into(ivTemp);
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TempActivity.this, MainActivity.class);
-                startActivity(intent);
+                testJson();
+//                Intent intent = new Intent(TempActivity.this, MainActivity.class);
+//                startActivity(intent);
 //                Intent intent = new Intent();
 //                intent.setClassName("com.example.contentproviderdemo","com.example.contentproviderdemo.MainActivity2");
 //                intent.putExtra("app","space");
@@ -99,7 +115,10 @@ public class TempActivity extends AppCompatActivity {
         options3Items.add(options2Items);
         options3Items.add(options2Items);
         options3Items.add(options2Items);
-
+        List<String> list = new ArrayList<>();
+        list.add("山有木兮木有枝");
+        list.add("心悦君兮君不知");
+        llVertical.setText(list);
 
         OptionsPickerView pvOptions = new OptionsPickerBuilder(TempActivity.this, new OnOptionsSelectListener() {
             @Override
@@ -134,6 +153,19 @@ public class TempActivity extends AppCompatActivity {
             Log.e("Test",params[i]+"");
 
         }
+    }
+
+    private void testJson(){
+        Gson gson = new Gson();
+        JsonStudent jsonStudent = new JsonStudent();
+        jsonStudent.setName("王琳");
+        jsonStudent.setLocation(" Sao Francisco");
+        jsonStudent.setMan(false);
+        Log.e("Test","JsonStudent:"+jsonStudent.toString());
+        String json = gson.toJson(jsonStudent);
+       JsonStudent jsonStudent1 =  JsonUtils.parseToJson(JsonStudent.class,json);
+        Log.e("Test","JsonUtils 后 JsonStudent:"+jsonStudent1.toString());
+
     }
 
 }

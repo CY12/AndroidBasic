@@ -5,7 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".temp.TempActivity">
+    <com.example.space.view.VerticalTextView
+        android:padding="@dimen/dp_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="白猫俘虏谁"
+        app:columnLength="1000"
+        />
 
+    <com.example.space.view.VerticalLinearLayout
+        android:id="@+id/ll_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        />
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/iv_temp"
         android:layout_width="wrap_content"
@@ -22,11 +35,19 @@
         android:padding="20dp"
 
         />
-    <com.example.space.view.CanvasView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp"
-        />
-
+<!--    <com.example.space.view.CanvasView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:layout_marginTop="150dp"-->
+<!--        />-->
+    <com.example.space.view.OvalImageView
+        android:visibility="visible"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="200dp"
+        app:Oval_rx="20dp"
+        app:Oval_ry="20dp"
+        android:src="@mipmap/ic_tou" />
 </RelativeLayout>

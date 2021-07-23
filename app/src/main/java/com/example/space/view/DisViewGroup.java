@@ -35,20 +35,20 @@ public class DisViewGroup extends RelativeLayout {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev){
         boolean is = super.dispatchTouchEvent(ev);
-        Log.e("Test","默认 DisViewGroup dispatchTouchEvent "+is);
+        Log.e("Test","默认 DisViewGroup dispatchTouchEvent "+is+"  action"+ev.getAction());
         return is;
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent event){
         boolean is = super.onInterceptTouchEvent(event);
-        Log.e("Test","默认 DisViewGroup onInterceptTouchEvent "+is);
+        Log.e("Test","默认 DisViewGroup onInterceptTouchEvent "+is+"  action"+event.getAction());
         return is;
     }
     @Override
     public boolean onTouchEvent(MotionEvent event){
         boolean is = super.onTouchEvent(event);
-        Log.e("Test","默认 DisViewGroup  onTouchEvent "+is);
+        Log.e("Test","默认 DisViewGroup  onTouchEvent "+is+"  action"+event.getAction());
         return is;
     }
 

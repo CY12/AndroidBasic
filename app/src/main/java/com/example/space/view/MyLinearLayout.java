@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
@@ -40,4 +41,11 @@ public class MyLinearLayout extends LinearLayout {
         super.onMeasure(widthMeasureSpec,heightMeasureSpec);
         Log.e("Test","MyLinearLayout  onMeasure");
     }
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent event){
+        Log.e("Test","MyLinearLayout onInterceptTouchEvent"+event.getAction());
+        return false;
+    }
+
+
 }

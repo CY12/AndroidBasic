@@ -20,14 +20,14 @@ public class DisView extends androidx.appcompat.widget.AppCompatTextView {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev){
         boolean is = super.dispatchTouchEvent(ev);
-        Log.e("Test","默认 DisView dispatchTouchEvent "+is);
+        Log.e("Test","默认 DisView dispatchTouchEvent "+is+" action"+ev.getAction());
         return is;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
         boolean is = super.onTouchEvent(event);
-        Log.e("Test","默认 DisView onTouchEvent "+is);
+        Log.e("Test","默认 DisView onTouchEvent "+is+" action"+event.getAction());
         return is;
     }
 }

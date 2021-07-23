@@ -26,10 +26,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".softinput.SoftInputActivity3"></activity>
+        <activity android:name=".softinput.InputEmojiActivity"></activity>
+        <activity android:name=".softinput.SoftInputActivity3" />
         <activity
             android:name=".softinput.SoftInputActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity android:name=".transition.AimActivity" />
         <activity android:name=".transition.TransitionActivity" />
         <activity android:name=".mvvm.UserActivity" />

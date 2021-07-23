@@ -90,17 +90,6 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
-
-            <com.example.space.view.OvalImageView
-                android:visibility="gone"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="200dp"
-                app:Oval_rx="20dp"
-                app:Oval_ry="20dp"
-                android:src="@mipmap/ic_tou" />
-
             <TextView
                 android:id="@+id/tv_camera"
                 android:layout_width="100dp"

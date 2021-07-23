@@ -31,5 +31,8 @@ public class SoftInputActivity extends BaseLifeActivity {
 
             startActivity(SoftInputActivity3.class);
         });
+        findViewById(R.id.tv_emoji).setOnClickListener(v -> {
+            startActivity(InputEmojiActivity.class);
+        });
     }
 }
