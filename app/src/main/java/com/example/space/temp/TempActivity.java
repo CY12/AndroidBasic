@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
 import com.bigkoo.pickerview.view.OptionsPickerView;
@@ -161,8 +162,16 @@ public class TempActivity extends AppCompatActivity {
         jsonStudent.setName("王琳");
         jsonStudent.setLocation(" Sao Francisco");
         jsonStudent.setMan(false);
+        jsonStudent.setAge(19f);
+        List list = new ArrayList();
+        list.add("sss");
+        list.add("hhh");
+
+        jsonStudent.setList(list);
         Log.e("Test","JsonStudent:"+jsonStudent.toString());
         String json = gson.toJson(jsonStudent);
+        Log.e("Test","Json"+json);
+        Log.e("Test","FastJson"+ JSON.toJSON(jsonStudent));
        JsonStudent jsonStudent1 =  JsonUtils.parseToJson(JsonStudent.class,json);
         Log.e("Test","JsonUtils 后 JsonStudent:"+jsonStudent1.toString());
 

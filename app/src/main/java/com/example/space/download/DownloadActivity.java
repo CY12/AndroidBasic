@@ -12,6 +12,8 @@ import com.arialyy.aria.core.Aria;
 import com.arialyy.aria.core.task.DownloadTask;
 import com.example.space.R;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.io.File;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
@@ -45,19 +47,46 @@ public class DownloadActivity extends AppCompatActivity {
 
        File file = new File(path+"tb.apk");
         tvStart.setOnClickListener(v -> {
-            if (!flag){
-                Log.e("Test","download");
-                taskId = Aria.download(this)
-                        .load("https://download.alicdn.com/wireless/taobao4android/latest/702757.apk")     //读取下载地址
-                        .setFilePath(file.getAbsolutePath()) //设置文件保存的完整路径
-                        .create();   //创建并启动下载
-                flag = !flag;
-            }else {
-                Log.e("Test","resume");
-                Aria.download(this)
-                        .load(taskId)//读取任务id
-                        .resume();
-            }
+            MyDownload.getMyDownload().setOnDownloadListener(new MyDownload.onDownloadListener() {
+                @Override
+                public void onSuccess() {
+
+                }
+
+                @Override
+                public void onFail(String msg) {
+
+                }
+
+                @Override
+                public void onProgress(float present) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvPercent.setText("已完成"+present*100+"%");
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancel() {
+
+                }
+            });
+            MyDownload.getMyDownload().startDownload();
+//            if (!flag){
+//                Log.e("Test","download");
+//                taskId = Aria.download(this)
+//                        .load("https://download.alicdn.com/wireless/taobao4android/latest/702757.apk")     //读取下载地址
+//                        .setFilePath(file.getAbsolutePath()) //设置文件保存的完整路径
+//                        .create();   //创建并启动下载
+//                flag = !flag;
+//            }else {
+//                Log.e("Test","resume");
+//                Aria.download(this)
+//                        .load(taskId)//读取任务id
+//                        .resume();
+//            }
         });
 
         tvStop.setOnClickListener(v -> {
