@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.fastjson.JSON;
 import com.bigkoo.pickerview.builder.OptionsPickerBuilder;
 import com.bigkoo.pickerview.listener.OnOptionsSelectListener;
@@ -19,6 +20,7 @@ import com.bigkoo.pickerview.view.OptionsPickerView;
 import com.bumptech.glide.Glide;
 import com.example.space.MainActivity;
 import com.example.space.R;
+import com.example.space.base.BaseLifeActivity;
 import com.example.space.bean.Child;
 import com.example.space.bean.Parent;
 import com.example.space.bean.Student;
@@ -40,7 +42,8 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 
-public class TempActivity extends AppCompatActivity {
+@Route(path = "/temp/temp2")
+public class TempActivity extends BaseLifeActivity {
 //    String[][][] options1Items = new String[][][]{{{"安徽", "河北", "北京"},{"北京", "河北", "北京"},{"河北", "河北", "北京"}}};
 
 //    List<String> options1Items = new ArrayList<String>(){};
@@ -77,10 +80,13 @@ public class TempActivity extends AppCompatActivity {
     };
 
 
-
+    @Override
+    protected String getTAG() {
+        return "TempActivity";
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temp);
         ivTemp =  findViewById(R.id.iv_temp);

@@ -26,7 +26,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".softinput.InputEmojiActivity"></activity>
+        <activity android:name=".temp.Temp2Activity"></activity>
+        <activity android:name=".softinput.InputEmojiActivity" />
         <activity android:name=".softinput.SoftInputActivity3" />
         <activity
             android:name=".softinput.SoftInputActivity"

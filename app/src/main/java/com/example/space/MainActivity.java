@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.example.space.addview.AddViewActivity;
 import com.example.space.animator.AnimatorActivity;
 import com.example.space.autoview.AutoViewActivity;
@@ -94,6 +95,10 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         Log.d("Test", "MainActivity onCreate");
 
+        ARouter.openLog();     // Print log
+        ARouter.openDebug();
+        ARouter.init(this.getApplication());
+
         Log.d(TAG,"onCreate");
         String s = "{\"id\":\"3\",\n" +
                 "\"name\":\"zz\"\n" +
@@ -162,7 +167,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
         findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));
         findViewById(R.id.tv_mvvm).setOnClickListener(v -> startActivity(MvvmActivity.class));
-        findViewById(R.id.tv_temp).setOnClickListener(v -> startActivity(TempActivity.class));
+        findViewById(R.id.tv_temp).setOnClickListener(v -> ARouter.getInstance().build("/temp/temp2").navigation());
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);
         });
