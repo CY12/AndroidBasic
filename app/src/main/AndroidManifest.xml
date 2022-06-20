@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.space">
+    package="com.example.space" >
 
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -25,8 +25,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".temp.Temp2Activity"></activity>
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".textviw.TextViewActivity"
+            android:exported="false" />
+        <activity android:name=".temp.Temp2Activity" />
         <activity android:name=".softinput.InputEmojiActivity" />
         <activity android:name=".softinput.SoftInputActivity3" />
         <activity
@@ -58,8 +61,8 @@
         <service
             android:name=".ipc.AidlService"
             android:enabled="true"
-            android:exported="true">
-            <intent-filter android:priority="1000">
+            android:exported="true" >
+            <intent-filter android:priority="1000" >
                 <action android:name="AIDL.service" />
             </intent-filter>
         </service>
@@ -92,7 +95,6 @@
         <activity android:name=".view.wave.WaveProgressActivity" />
         <activity android:name=".life.ModelActivity" />
         <activity android:name=".CameraActivity" />
-        <activity android:name=".greendao.GreenDaoActivity" />
         <activity android:name=".service.ServiceActivity" />
         <activity android:name=".autoview.AutoViewActivity" />
         <activity android:name=".thinking.builder.BuilderActivity" />
@@ -109,7 +111,7 @@
             android:enabled="true"
             android:exported="true"
             android:label="@string/app_name"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
@@ -119,12 +121,12 @@
                 android:resource="@xml/accessibility_config" />
         </service>
 
-        <receiver android:name=".broadcast.MyReceiver">
+        <receiver android:name=".broadcast.MyReceiver" >
             <intent-filter>
                 <action android:name="com.example.recriver" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".broadcast.AppReceiver">
+        <receiver android:name=".broadcast.AppReceiver" >
             <intent-filter>
 
                 <!-- 安装应用 -->
@@ -150,13 +152,13 @@
 
         <receiver
             android:name=".ipc.IpcReceiver"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="net.ipc.BROADCAST" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

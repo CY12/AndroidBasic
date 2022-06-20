@@ -9,6 +9,7 @@ import android.graphics.Matrix;
 import android.graphics.Point;
 import android.graphics.RectF;
 import android.graphics.SurfaceTexture;
+import android.graphics.drawable.GradientDrawable;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCaptureSession;
 import android.hardware.camera2.CameraCharacteristics;
@@ -80,6 +81,8 @@ public class Camera2Helper {
         if (isMirror) {
             mTextureView.setScaleX(-1);
         }
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setColor(11);
     }
 
     public void switchCamera() {

@@ -4,11 +4,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Display;
-import android.view.Gravity;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -24,6 +20,7 @@ import com.example.space.broadcast.BroadcastActivity;
 import com.example.space.databinding.Student;
 import com.example.space.camera.CameraActivity1;
 import com.example.space.databinding.DataBindingActivity;
+import com.example.space.dialog.StyleDialog;
 import com.example.space.dispatch.DispatchActivity;
 import com.example.space.download.DownloadActivity;
 import com.example.space.fragment.FragmentActivity;
@@ -31,7 +28,7 @@ import com.example.space.ipc.IpcActivity;
 import com.example.space.life.ModelActivity;
 import com.example.space.onehand.OneHandActivity;
 import com.example.space.softinput.SoftInputActivity;
-import com.example.space.softinput.SoftInputActivity2;
+import com.example.space.textviw.TextViewActivity;
 import com.example.space.thread.AsyncActivity;
 import com.example.space.thread.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;
@@ -43,7 +40,6 @@ import com.example.space.reflex.ReflexActivity;
 import com.example.space.scroll.Scroll2Activity;
 import com.example.space.service.ServiceActivity;
 import com.example.space.singleClick.SingleActivity;
-import com.example.space.temp.TempActivity;
 import com.example.space.thinking.observer.ObserverActivity;
 import com.example.space.transition.TransitionActivity;
 import com.example.space.utils.LoadingDialog;
@@ -188,16 +184,21 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_async).setOnClickListener(v -> {
             startActivity(AsyncActivity.class);
         });
+        findViewById(R.id.tv_textView).setOnClickListener(v -> {
+            startActivity(TextViewActivity.class);
+        });
         findViewById(R.id.tv_dialog).setOnClickListener((View.OnClickListener) v -> {
-            DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);
-            Window window = dialogTip.getWindow();
-            //设置弹出位置
-            window.setGravity(Gravity.BOTTOM);
-            dialogTip.show();
-            Display display = getWindowManager().getDefaultDisplay();
-            WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
-            lp.width = (int) (display.getWidth()); //设置宽度
-            dialogTip.getWindow().setAttributes(lp);
+            StyleDialog dialog = new StyleDialog(MainActivity.this,R.style.DialogFullscreen);
+            dialog.show();
+//            DialogTip dialogTip = new DialogTip(MainActivity.this, R.style.TipDialog);
+//            Window window = dialogTip.getWindow();
+//            //设置弹出位置
+//            window.setGravity(Gravity.BOTTOM);
+//            dialogTip.show();
+//            Display display = getWindowManager().getDefaultDisplay();
+//            WindowManager.LayoutParams lp = dialogTip.getWindow().getAttributes();
+//            lp.width = (int) (display.getWidth()); //设置宽度
+//            dialogTip.getWindow().setAttributes(lp);
 
         });
         findViewById(R.id.tv_autoImageView).setOnClickListener(v -> {
@@ -341,6 +342,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 break;
             case R.id.tv_reflex:
                 startActivity(ReflexActivity.class);
+                break;
+            case R.id.tv_textView:
+                startActivity(TextViewActivity.class);
                 break;
             default:
                 break;

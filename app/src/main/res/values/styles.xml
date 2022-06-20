@@ -57,6 +57,17 @@
         <item name="background">@android:color/transparent</item>
     </style>
 
+    <style name="DialogFullscreen"  parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowSoftInputMode">stateAlwaysHidden|adjustNothing</item>
+
+    </style>
+
+
     <style name="BottomSheetDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
@@ -102,6 +113,31 @@
             <flag name="normal" value="0" />
             <flag name="bold" value="1" />
             <flag name="italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="KKTextView">
+        <attr name="corners" format="dimension"/>
+        <attr name="topLeftRadius" format="dimension"/>
+        <attr name="topRightRadius" format="dimension"/>
+        <attr name="bottomLeftRadius" format="dimension"/>
+        <attr name="bottomRightRadius" format="dimension"/>
+        <attr name="strokeColor" format="color|reference"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="solidColor" format="color|reference"/>
+        <attr name="startColor" format="color|reference"/>
+        <attr name="endColor" format="color|reference"/>
+        <attr name="gradientOrientation">
+            <!-- Defines an horizontal widget. -->
+            <enum name="LEFT_RIGHT" value="0" />
+            <!-- Defines a vertical widget. -->
+            <enum name="RIGHT_LEFT" value="1" />
+            <enum name="BOTTOM_TOP" value="2" />
+            <enum name="TOP_BOTTOM" value="3" />
+            <enum name="BR_TL" value="4" />
+            <enum name="BL_TR" value="5" />
+            <enum name="TL_BR" value="6" />
+            <enum name="TR_BL" value="7" />
         </attr>
     </declare-styleable>
 </resources>

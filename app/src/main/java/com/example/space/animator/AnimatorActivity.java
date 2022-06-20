@@ -21,4 +21,7 @@ public class AnimatorActivity extends AppCompatActivity {
         animator.setDuration(8000);
         animator.start();
     }
+
 }
+
+

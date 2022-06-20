@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 29
@@ -44,11 +45,7 @@ android {
 //            jniLibs.srcDirs = ['src/main/jniLibs']
 //        }
     }
-    greendao {
-        schemaVersion 1
-        targetGenDir 'src/main/java/'
-        daoPackage 'com.example.space.dao'
-    }
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -66,7 +63,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation "com.google.android.material:material:1.0.0"
-    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     //camera
     def camerax_version = "1.0.0-beta06"
