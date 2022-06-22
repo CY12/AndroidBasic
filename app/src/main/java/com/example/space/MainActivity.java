@@ -27,6 +27,7 @@ import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
 import com.example.space.life.ModelActivity;
 import com.example.space.onehand.OneHandActivity;
+import com.example.space.proxy.ProxyActivity;
 import com.example.space.softinput.SoftInputActivity;
 import com.example.space.textviw.TextViewActivity;
 import com.example.space.thread.AsyncActivity;
@@ -186,6 +187,9 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         });
         findViewById(R.id.tv_textView).setOnClickListener(v -> {
             startActivity(TextViewActivity.class);
+        });
+        findViewById(R.id.tv_proxy).setOnClickListener(v -> {
+            startActivity(ProxyActivity.class);
         });
         findViewById(R.id.tv_dialog).setOnClickListener((View.OnClickListener) v -> {
             StyleDialog dialog = new StyleDialog(MainActivity.this,R.style.DialogFullscreen);

@@ -478,6 +478,16 @@
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
+            <TextView
+                android:id="@+id/tv_proxy"
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="1300dp"
+                android:background="@drawable/tv_20"
+                android:gravity="center"
+                android:text="代理"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
         </RelativeLayout>
 

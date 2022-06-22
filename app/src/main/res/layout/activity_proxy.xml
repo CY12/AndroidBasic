@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".proxy.ProxyActivity">
+
+    <com.example.space.textviw.KKTextView
+        android:id="@+id/tv_proxy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="动态代理"
+        android:padding="10dp"
+        android:textSize="16dp"
+        app:corners="10dp"
+        app:solidColor="#FFEB3B"
+        />
+
+    <com.example.space.textviw.KKTextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:padding="10dp"
+        android:textSize="16dp"
+        app:corners="10dp"
+        app:solidColor="#EDE9C7"
+        />
+
+
+</RelativeLayout>
