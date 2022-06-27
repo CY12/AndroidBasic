@@ -89,7 +89,7 @@
         <activity
             android:name=".temp.TempActivity"
             android:exported="true" />
-        <activity android:name=".mvvm.MvvmActivity" />
+
         <activity android:name=".livedata.SecondActivity" />
         <activity android:name=".livedata.LiveDataActivity" />
         <activity android:name=".singleClick.SingleActivity" />
@@ -103,7 +103,7 @@
         <activity android:name=".thinking.builder.BuilderActivity" />
         <activity android:name=".thinking.observer.ObserverActivity" />
         <activity android:name=".addview.AddViewActivity" />
-        <activity android:name=".databinding.DataBindingActivity" />
+
         <activity android:name=".camera.CameraActivity1" />
 
         <service android:name=".service.TestService" />

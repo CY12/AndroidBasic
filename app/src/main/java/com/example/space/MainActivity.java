@@ -12,14 +12,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.example.apt_annotation.AptAnnotation;
+import com.example.apt_annotation.BindView;
+import com.example.apt_library.BindViewTools;
+import com.example.apt_library.MyAptApi;
 import com.example.space.addview.AddViewActivity;
 import com.example.space.animator.AnimatorActivity;
 import com.example.space.autoview.AutoViewActivity;
 import com.example.space.base.BaseToolbarActivity;
 import com.example.space.broadcast.BroadcastActivity;
-import com.example.space.databinding.Student;
 import com.example.space.camera.CameraActivity1;
-import com.example.space.databinding.DataBindingActivity;
 import com.example.space.dialog.StyleDialog;
 import com.example.space.dispatch.DispatchActivity;
 import com.example.space.download.DownloadActivity;
@@ -34,7 +36,6 @@ import com.example.space.thread.AsyncActivity;
 import com.example.space.thread.leak.LeakActivity;
 import com.example.space.light.LightPhoneActivity;
 import com.example.space.livedata.LiveDataActivity;
-import com.example.space.mvvm.MvvmActivity;
 import com.example.space.picture.AutoPictureActivity;
 import com.example.space.recycleview.RecyclerViewActivity;
 import com.example.space.reflex.ReflexActivity;
@@ -57,6 +58,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import java.util.HashMap;
 import java.util.Map;
 
+@AptAnnotation(desc = "我是 MainActivity 上面的注解")
 public class MainActivity extends BaseToolbarActivity implements View.OnClickListener {
     private TextView tvAddView;
     private TextView tvDataBing;
@@ -76,22 +78,26 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
     TextView tvLoading;
     RelativeLayout relativeLayout;
     boolean isRunning = false;
+
+//    @Teenager(visible = View.GONE)
     TextView tvLoadingDialog;
     private TextView tvReflex;
 
-
+    @BindView(R.id.tv_proxy)
+    TextView proxy;
     private MediaPlayer mediaPlayer;
     private boolean isPlaying = false;
     private LoadingDialog loadingDialog;
     private TextView tvMultiRecycler;
 
-
+    @AptAnnotation(desc = "我是 onCreate 上面的注解")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("Test", "MainActivity super.onCreate");
         super.onCreate(savedInstanceState);
         Log.d("Test", "MainActivity onCreate");
-
+        BindViewTools.bind(this);
+        MyAptApi.init();
         ARouter.openLog();     // Print log
         ARouter.openDebug();
         ARouter.init(this.getApplication());
@@ -104,8 +110,6 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
 
         Log.e("Test","s "+s);
         Gson gson = new Gson();
-        Student student = gson.fromJson(s,Student.class);
-        Log.e("Test",student.toString());
 
         initListener();
     }
@@ -163,7 +167,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_websocket).setOnClickListener(v -> startActivity(WebSocketActivity.class));
         findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
         findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));
-        findViewById(R.id.tv_mvvm).setOnClickListener(v -> startActivity(MvvmActivity.class));
+//        findViewById(R.id.tv_mvvm).setOnClickListener(v -> );
         findViewById(R.id.tv_temp).setOnClickListener(v -> ARouter.getInstance().build("/temp/temp2").navigation());
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);
@@ -301,7 +305,6 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
                 startActivity(AddViewActivity.class);
                 break;
             case R.id.tv_dataBing:
-                startActivity(DataBindingActivity.class);
                 break;
             case R.id.tv_observer:
                 startActivity(ObserverActivity.class);

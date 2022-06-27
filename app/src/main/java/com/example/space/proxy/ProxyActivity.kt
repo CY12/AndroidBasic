@@ -8,10 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.space.R
 import java.lang.reflect.InvocationHandler
 import java.lang.reflect.Proxy
+import java.util.concurrent.ConcurrentHashMap
 
 class ProxyActivity : AppCompatActivity() {
 
     var mByeInterface: ByeInterface? = null
+    private val sInterfaceCache = ConcurrentHashMap<Class<*>, Array<Class<*>?>>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_proxy)
@@ -48,7 +50,7 @@ class ProxyActivity : AppCompatActivity() {
 
     @VisibleForTesting
     fun getInterfaces(clazz: Class<*>?): Array<Class<*>?>? {
-        var interfaces: Array<Class<*>?>? = null
+        var interfaces: Array<Class<*>?>? = sInterfaceCache[clazz]
         if (interfaces != null) {
             return interfaces
         }
@@ -89,6 +91,7 @@ class ProxyActivity : AppCompatActivity() {
         for (inter in ret) {
             interfaces[index++] = inter
         }
+        sInterfaceCache[clazz] = interfaces
         return interfaces
     }
 

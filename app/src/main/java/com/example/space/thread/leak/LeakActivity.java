@@ -10,7 +10,8 @@ import android.widget.Toast;
 
 import com.example.space.R;
 import com.example.space.base.BaseActivity;
-import com.example.space.databinding.Student;
+import com.example.space.thread.Student;
+
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
