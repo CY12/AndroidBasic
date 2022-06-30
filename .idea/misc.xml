@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/activity_base.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/activity_builder.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/activity_data_binding1.xml" value="0.13802083333333334" />
+        <entry key="app/src/main/res/layout/activity_extension.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_green_dao.xml" value="0.17864583333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.17864583333333334" />
         <entry key="app/src/main/res/layout/activity_mvvm.xml" value="0.13802083333333334" />

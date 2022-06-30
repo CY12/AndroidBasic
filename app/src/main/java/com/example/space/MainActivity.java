@@ -25,6 +25,7 @@ import com.example.space.camera.CameraActivity1;
 import com.example.space.dialog.StyleDialog;
 import com.example.space.dispatch.DispatchActivity;
 import com.example.space.download.DownloadActivity;
+import com.example.space.ext.ExtensionActivity;
 import com.example.space.fragment.FragmentActivity;
 import com.example.space.ipc.IpcActivity;
 import com.example.space.life.ModelActivity;
@@ -167,7 +168,7 @@ public class MainActivity extends BaseToolbarActivity implements View.OnClickLis
         findViewById(R.id.tv_websocket).setOnClickListener(v -> startActivity(WebSocketActivity.class));
         findViewById(R.id.tv_liveData).setOnClickListener(v -> startActivity(LiveDataActivity.class));
         findViewById(R.id.tv_singleClick).setOnClickListener(v -> startActivity(SingleActivity.class));
-//        findViewById(R.id.tv_mvvm).setOnClickListener(v -> );
+        findViewById(R.id.tv_mvvm).setOnClickListener(v -> startActivity(ExtensionActivity.class) );
         findViewById(R.id.tv_temp).setOnClickListener(v -> ARouter.getInstance().build("/temp/temp2").navigation());
         findViewById(R.id.tv_p).setOnClickListener(v -> {
             startActivity(SecrityActivity.class);

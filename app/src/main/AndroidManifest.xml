@@ -27,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ext.ExtensionActivity"
+            android:exported="false" />
+        <activity
             android:name=".proxy.ProxyActivity"
             android:exported="false" />
         <activity
@@ -89,7 +92,6 @@
         <activity
             android:name=".temp.TempActivity"
             android:exported="true" />
-
         <activity android:name=".livedata.SecondActivity" />
         <activity android:name=".livedata.LiveDataActivity" />
         <activity android:name=".singleClick.SingleActivity" />
@@ -103,7 +105,6 @@
         <activity android:name=".thinking.builder.BuilderActivity" />
         <activity android:name=".thinking.observer.ObserverActivity" />
         <activity android:name=".addview.AddViewActivity" />
-
         <activity android:name=".camera.CameraActivity1" />
 
         <service android:name=".service.TestService" />
