@@ -27,7 +27,7 @@ android {
 //
 //        }
     }
-    dataBinding {
+    viewBinding {
         enabled = true
     }
     buildTypes {
@@ -113,7 +113,6 @@ dependencies {
     api 'com.alibaba:arouter-api:1.5.2'
     annotationProcessor 'com.alibaba:arouter-compiler:1.5.2'
 
-    implementation 'com.github.CY12:LibSpaceStation:1.0'
     implementation project(':apt-annotation')
     implementation project(path: ':apt-library')
     annotationProcessor project(':apt-processor')
