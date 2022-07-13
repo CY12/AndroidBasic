@@ -24,6 +24,8 @@
       <module name="Space.app" target="1.8" />
       <module name="Space.apt-library" target="1.8" />
       <module name="Space.apt-processor" target="1.8" />
+      <module name="Space.lifecycle-plugin" target="1.8" />
+      <module name="Space.my-plugin" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/apt-annotation" />
             <option value="$PROJECT_DIR$/apt-library" />
             <option value="$PROJECT_DIR$/apt-processor" />
+            <option value="$PROJECT_DIR$/lifecycle-plugin" />
+            <option value="$PROJECT_DIR$/my-plugin" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

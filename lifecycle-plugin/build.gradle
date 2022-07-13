@@ -1,0 +1,33 @@
+apply plugin: 'groovy'
+
+apply plugin: 'maven-publish'
+repositories {
+    mavenCentral()
+    google()
+}
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+    implementation 'org.ow2.asm:asm:9.1'
+    implementation 'org.ow2.asm:asm-commons:9.1'
+//    implementation 'commons-io:commons-io:2.5'
+    implementation 'com.android.tools.build:gradle:4.2.0'
+}
+
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication){
+                groupId = 'com.yuwei.plugin'
+                artifactId = 'testplugin'
+                version = '1.0.1'
+                from components.java
+
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+}
+
+repositories {
+    mavenCentral()
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication){
+                groupId = 'com.cy.plugin'
+                artifactId = 'myplugin'
+                version = '1.0.0'
+                from components.java
+
+            }
+        }
+    }
+}

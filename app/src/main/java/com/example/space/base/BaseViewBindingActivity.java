@@ -11,7 +11,7 @@ import org.jetbrains.annotations.Nullable;
 
 public abstract class BaseViewBindingActivity<VB extends ViewBinding> extends AppCompatActivity {
 
-    private VB binding;
+    public VB binding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
